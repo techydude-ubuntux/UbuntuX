@@ -99,7 +99,9 @@ https://github.com/termux/termux-app/releases/download/v0.118.3/termux-app_v0.11
 
 Download latest Termux:X11 APK (universal debug):
 
-https://github.com/termux/termux-x11/releases
+### GitHub
+https://github.com/termux/termux-x11/releases/download/nightly/app-universal-debug.apk
+
 ---
 
 # Phantom Process Fix (IMPORTANT) ⚠️
