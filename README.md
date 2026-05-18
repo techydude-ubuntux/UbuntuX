@@ -213,7 +213,7 @@ After running the command:
 pkg update -y
 pkg install git -y
 
-git clone YOUR_GITHUB_LINK
+git clone https://github.com/shivanshjoshi5689-sketch/UbuntuX.git
 cd ubuntux
 
 chmod +x setup.sh
