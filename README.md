@@ -2,7 +2,7 @@
 
 UbuntuX Lite is a lightweight and smooth Ubuntu XFCE desktop environment for Android built using Termux, Termux:X11, and Proot-Distro.
 
-This project was created by **Shivansh Joshi (14 years old)** with the goal of making Linux and programming accessible to students and users who cannot afford a PC or laptop.
+This project is created by **Shivansh Joshi (14 years old programmer)** with the goal of making Linux and programming accessible to students and users who cannot afford a PC or laptop.
 
 UbuntuX transforms an Android phone into a portable Linux desktop with:
 - Features ✨
