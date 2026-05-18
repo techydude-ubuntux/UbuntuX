@@ -89,7 +89,7 @@ Perfect for:
 Download latest Termux apk (universal debug):
 
 ### GitHub
-https://github.com/termux/termux-app/releases
+https://github.com/termux/termux-app/releases/download/v0.118.3/termux-app_v0.118.3+github-debug_universal.apk
 
 > Do NOT install Termux from Play Store because it is outdated.
 
