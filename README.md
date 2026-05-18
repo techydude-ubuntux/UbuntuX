@@ -441,6 +441,7 @@ Add screenshots here.
 
 Examples:
 - Desktop
+- ![Desktop](screenshots/s1.jpg)
 - VS Code
 - BlueJ
 - Firefox
