@@ -1,4 +1,4 @@
-# UbuntuX Lite 🚀
+# UbuntuX 🚀
 
 UbuntuX Lite is a lightweight and smooth Ubuntu XFCE desktop environment for Android built using Termux, Termux:X11, and Proot-Distro.
 
