@@ -202,7 +202,7 @@ After running the command:
 yes | pkg up 
 pkg install git -y
 
-git clone https://github.com/shivanshjoshi5689-sketch/UbuntuX.git
+git clone https://github.com/techydude-ubuntux/UbuntuX.git
 cd UbuntuX
 
 bash UbuntuX/setup.sh
