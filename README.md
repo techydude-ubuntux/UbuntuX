@@ -427,10 +427,16 @@ For best performance:
 
 - Desktop
 - ![Desktop](Screenshots/s1.jpg)
-- VS Code
-- BlueJ
 - macOS Theme & Dock
-
+- ![Desktop](Screenshots/s2.jpg)
+- ![Desktop](Screenshots/s3.jpg)
+- Installed Apps (VS Code, Firefox, VLC, etc.)
+- ![Desktop](Screenshots/s4.jpg)
+- Utilities
+- ![Desktop](Screenshots/s6.jpg)
+- ![Desktop](Screenshots/s7.jpg)
+- About OS
+- ![Desktop](Screenshots/s5.jpg)
 ---
 
 # Credits ❤️
