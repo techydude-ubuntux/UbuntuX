@@ -204,7 +204,7 @@ termux-setup-storage
 mv ~/storage/shared ~
 ```
 ```bash
-rm -rf storage
+rm -rf ~/storage
 ```
 ```bash
 mv shared Storage
@@ -222,7 +222,7 @@ pkg install git -y
 git clone https://github.com/techydude-ubuntux/UbuntuX.git
 ```
 ```bash
-bash UbuntuX/setup.sh
+bash ~/UbuntuX/setup.sh
 ```
 
 ---
@@ -293,7 +293,15 @@ This installs all apps :
 - VS Code
 - BlueJ
 - VLC
+
+# VS Code Installation
+It will ask for Java in VS Code
+|1|YES|
+|2|NO|
+Enter 1 to install JDK for Java and 2 for denying
+**JDK is necessary for Java language without JDK Java programmes do not compile or run!**
 ---
+
 
 # Starting UbuntuX ▶️
 
