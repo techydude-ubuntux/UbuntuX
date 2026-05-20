@@ -101,7 +101,7 @@ Before installing UbuntuX, make sure you have:
 - Termux
 - Termux:X11
 - Internet connection
-- Storage permission enabled
+- 6GB+ Free Storage
 
 Recommended:
 
