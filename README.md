@@ -351,13 +351,18 @@ For best performance:
 
 # Screenshots 📸
 
-- ![Desktop](Screenshots/s1.jpg)
-- ![macOS Theme & Dock](Screenshots/s2.jpg)
-- ![Installed Apps (VS Code, Firefox, VLC, etc.)](Screenshots/s3.jpg)
-- ![Utilities](Screenshots/s4.jpg)
-- ![Homepage](Screenshots/s6.jpg)
-- ![Desktop](Screenshots/s7.jpg)
-- ![About OS](Screenshots/s5.jpg)
+- Desktop
+![s1](Screenshots/s1.jpg)
+- macOS Theme & DocK
+![s2](Screenshots/s2.jpg)
+![s3](Screenshots/s3.jpg)
+- Installed Apps (VS Code, Firefox, VLC, etc.)
+![s4](Screenshots/s4.jpg)
+-  Utilities 
+![s6](Screenshots/s6.jpg)
+![s7](Screenshots/s7.jpg)
+- About OS
+![s5](Screenshots/s5.jpg)
   
 ---
 
