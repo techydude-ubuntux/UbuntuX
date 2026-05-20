@@ -6,7 +6,7 @@ This project is created by **Shivansh Joshi (14 years old programmer)** with the
 
 UbuntuX transforms an Android phone into a portable Linux desktop with:
 
-- Features ✨
+> Features ✨
 
 - 🚫 No root required
 - ⚡ Hardware accelerated graphics
@@ -21,74 +21,45 @@ UbuntuX transforms an Android phone into a portable Linux desktop with:
 
 ---
 
-UbuntuX is designed for:
+# Why UbuntuX? 🚀
+
+> UbuntuX is designed for:
 - Students
-- Programmers(Java, Python, Web Development etc.)
-- Java learners
-- Linux enthusiasts
-- Users with low-end devices
+- Programmers (Java, Python, Web Development etc.)
+- Programming on Android 
+- Linux learning
+- Users with low-end devices as well as high-end devices
 
 The aim of UbuntuX is to provide a clean, fast, and easy Linux setup on Android so anyone can learn programming and use desktop Linux tools directly from their phone.
 
 ---
 
-# Why UbuntuX? 🚀
-
-UbuntuX is designed for:
-- Programming on Android 
-- Java development
-- Web development
-- Linux learning
-- Lightweight desktop
-
-Advantages:
-- Cleaner macOS-like interface
-- Hardware accelerated rendering
-- Smooth desktop experience on Android
-- Lower RAM usage
-- Better responsiveness
-- Smooth animations
-
----
-
-## Programmer Friendly 👨‍💻
-
-UbuntuX supports:
-- VS Code
-- BlueJ
-- Firefox
-- VLC
-- More other apps...
-
-### Perfect for:
-- All programmers and coders.
-- Support for Java, HTML, CSS, C++, C, C#, etc.
-
----
 # Requirements
-1. Termux
-2. Termux:X11
-3. 6
+1. Android Phone
+2. 6GB+ free Storage
+3. Termux
+4. Termux:X11
+5. Phantom Process Fix if Android 12+(phantom-process-fix-important-)
+
+---
 
 # Install Required Apps 📥
 
 ## 1. Install Termux
-
-Download latest Termux apk (universal debug):
 
 ### GitHub
 https://github.com/termux/termux-app/releases/download/v0.118.3/termux-app_v0.118.3+github-debug_universal.apk
 
 > Do NOT install Termux from Play Store because it is outdated.
 
----
-
 ## 2. Install Termux:X11
-
-Download latest Termux:X11 APK (universal debug):
 
 ### GitHub
 https://github.com/termux/termux-x11/releases/download/nightly/app-universal-debug.apk
+
+## Install ADB AppControl App
+### Official Website
+https://adbappcontrol.com/en/mobile/
 
 ---
 
@@ -107,79 +78,22 @@ This may cause:
 You should apply this fix before using UbuntuX.
 
 ---
-# Pre-Installation Process (necessary)
-
-- **Fix Using Wireless ADB (No PC Required)** 📱
-
-## Install ADB AppControl Mobile
-
-Download:
-https://adbappcontrol.com/en/mobile/
-
-Install the app on your Android phone.
-
----
 
 # Enable Required Android Settings
 
-Open:
-
-```text
-Settings → About Phone
-```
-
-Tap:
-```text
-Build Number
-```
-7 times to enable Developer Options.
-
-Now open:
-
-```text
-Settings → Developer Options
-```
-
-Enable:
-- USB Debugging
-- Wireless Debugging
-
----
-
-# Connect ADB AppControl
-
-## Step 1
-```text
-Open The app and do the setup as directed in app and pair using
-pairing code in notification
-```
-
-## Step 2 After connecting:
-Open the:
-```text
-⋮ Three Dots Menu and open console
-```
-
-## Step 3
-Copy-paste this command:
-
+> Step 1: Open Settings → About Phone
+> Step 2: Tap Build Number 7 times to enable Developer Options
+> Step 3: Connect to Wifi and turn on USB Debugging and Wireless Debugging
+> Step 3: Open The app and do the setup as directed in app.
+> Step 4: After connecting Open the: Three Dots Menu and open console
+> Step 5: Copy-paste this command and press Enter.
 ```bash
 /system/bin/device_config put activity_manager max_phantom_processes 10000
 ```
-
-Then press Enter.
-
----
-
-# Restart Your Phone 🔄
-
-After running the command:
+#### After running the command:
 - You can turn off Developer Options, Wireless Debugging, USB Debugging
   and uninstall **ADB App Control App**
-- Restart your device once
-- Open Termux again
-- UbuntuX will work properly now
-
+ 
 ---
 
 # Installation 🚀
@@ -215,7 +129,7 @@ bash ~/UbuntuX/setup.sh
 
 ---
 
-# What The Installer Does 🛠️
+## What The Installer Does 🛠️
 
 The setup script automatically:
 
@@ -254,9 +168,9 @@ The installer automatically:
 
 ---
 
-# Optional Software Installation 📦
+# Software Installation 📦
 
-UbuntuX allows installing additional software during setup.Users can install one or multiple apps during setup.
+UbuntuX allows installing additional software during setup. You can install one or multiple apps during setup.
 
 
 Menu:
@@ -286,67 +200,57 @@ UbuntuX also supports multiple programming languages and development environment
 
 You can install one or multiple languages during setup.
 
-| Option | Programming Language | Description |
-|---|---|---|
-| 1 | Java | Popular language used for Android apps, desktop software, and enterprise development |
-| 2 | Python | Beginner-friendly language used in AI, automation, scripting, and web development |
-| 3 | C | Powerful low-level language widely used for system programming |
-| 4 | C++ | Extension of C used in games, graphics, and high-performance applications |
-| 5 | C# | Modern language mainly used for .NET applications and game development with Unity |
-| 6 | JavaScript / Node.js | Popular language for web development and backend applications |
-| 7 | HTML / CSS | Used for designing and building websites |
-| 8 | PHP | Server-side language commonly used in web development |
-| 9 | Go | Fast and lightweight language developed by Google for backend and cloud applications |
-| 10 | Rust | Modern systems programming languag
+| Option | Programming Language |
+|---|---|
+| 1 | Java |
+| 2 | Python |
+| 3 | C |
+| 4 | C++ |
+| 5 | C# |
+| 6 | JavaScript / Node.js |
+| 7 | HTML / CSS |
+| 8 | PHP |
+| 9 | Go |
+| 10 | Rust |
 
 Example:
 
 ```text
-Enter choices: 1 2 3 4 6
+Enter choices: 1 2 3 4 5 6 7 8 9 10
 ```
 
-This installs:
+> This installs all languages.
 
-- Java
-- Python
-- C
-- C++
-- JavaScript / Node.js
-
-UbuntuX provides a lightweight Linux development environment for learning, coding, compiling, and running programs directly on Android using Termux and Proot.
+- UbuntuX provides a lightweight Linux development environment for learning, coding, compiling, and running programs directly on Android using Termux and Proot.
 
 ---
 
 # Starting UbuntuX ▶️
 
-After installation:
+- To launch UbuntuX
 
+> Type in Termux:
 ```bash
 UbuntuX
 ```
-
-UbuntuX automatically:
-- Starts PulseAudio
-- Starts Termux:X11
-- Starts VirGL Hardware Acceleration 
-- Launches XFCE desktop
+- It will launch the desktop environment.
 
 ---
 
 # Exit UbuntuX
 
-To close Ubuntu:
+- To close UbuntuX:
 
+> Type in Termux (only):
 ```bash
 logout
 ```
-
 ---
 
 # VS Code Fix 🛠️
 
-If VS Code does not launch correctly 
-Do right click on VS code and paste this in command section:
+- If VS Code does not launch correctly
+> Do right click on VS code and paste this in command section:
 
 ```bash
 code --no-sandbox
@@ -419,7 +323,7 @@ Disable these Android gestures:
 - Three finger screenshot
 - Three finger split screen
 
-They may conflict with Termux:X11 gestures.
+These may conflict with Termux:X11 gestures.
 
 ---
 
@@ -432,11 +336,10 @@ For best performance:
   - Termux:X11
 
 - Keep at least:
-  - 2GB free RAM
-  - 6GB free storage
+  - 3GB of free RAM
+  - 6GB of free storage
 
 - Use Android dark mode
-
 - Avoid aggressive battery saver modes
 
 ---
@@ -462,9 +365,7 @@ For best performance:
 Projects used:
 - Termux
 - Termux:X11
-- XFCE
 - Proot-Distro
-- VirGL
 - Mesa
 
 ---
@@ -475,7 +376,7 @@ Performance depends on:
 - RAM
 - Android version
 
-Some applications may behave differently compared to real Linux systems.
+> Some applications may behave differently compared to real Linux systems.
 
 ---
 
