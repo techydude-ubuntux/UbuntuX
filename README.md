@@ -196,6 +196,14 @@ After running the command:
 
 # Installation 🚀
 
+## Setup Storage
+```bash
+termux-setup-storage
+mv ~/storage/shared ~
+rm -rf storage
+mv shared Storage
+```
+
 ## Clone UbuntuX Repository
 
 ```bash
