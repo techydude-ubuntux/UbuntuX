@@ -30,23 +30,7 @@ UbuntuX is designed for:
 
 The aim of UbuntuX is to provide a clean, fast, and easy Linux setup on Android so anyone can learn programming and use desktop Linux tools directly from their phone.
 
-Index 📚
-
-- [About UbuntuX](#ubuntux-)
-- [Features](#features-)
-- [Programming & Development](#programming--development-)
-- [Why UbuntuX?](#why-ubuntux-)
-- [Requirements](#requirements-)
-- [Installation](#installation-)
-- [Starting UbuntuX](#starting-ubuntux-)
-- [Screenshots](#screenshots-)
-- [Hardware Acceleration](#hardware-acceleration-)
-- [Development Tools](#programming-languages-support-)
-- [Known Issues](#known-issues-)
-- [Credits](#credits-)
-
 ---
-
 
 # Why UbuntuX? 🚀
 
@@ -81,6 +65,10 @@ UbuntuX supports:
 - Support for Java, HTML, CSS, C++, C, C#, etc.
 
 ---
+# Requirements
+1. Termux
+2. Termux:X11
+3. 6
 
 # Install Required Apps 📥
 
@@ -309,15 +297,13 @@ You can install one or multiple languages during setup.
 | 7 | HTML / CSS | Used for designing and building websites |
 | 8 | PHP | Server-side language commonly used in web development |
 | 9 | Go | Fast and lightweight language developed by Google for backend and cloud applications |
-| 10 | Rust | Modern systems programming language focused on speed and memory safety |
+| 10 | Rust | Modern systems programming languag
 
 Example:
 
 ```text
 Enter choices: 1 2 3 4 6
 ```
-
-Multiple selections are allowed.
 
 This installs:
 
@@ -328,6 +314,8 @@ This installs:
 - JavaScript / Node.js
 
 UbuntuX provides a lightweight Linux development environment for learning, coding, compiling, and running programs directly on Android using Termux and Proot.
+
+---
 
 # Starting UbuntuX ▶️
 
@@ -364,20 +352,7 @@ Do right click on VS code and paste this in command section:
 code --no-sandbox
 ```
 ---
-
-# Included Applications 📦
-
-UbuntuX includes:
-- XFCE4
-- Fastfetch
-- Ristretto
-- Firefox
-- VS Code
-- BlueJ
-- VLC
-
----
-## Termux:X11 Recommended Settings ⚙️
+# Termux:X11 Recommended Settings ⚙️
 
 Open:
 
@@ -433,6 +408,7 @@ Save the preferences!
 ---
 
 ### Gestures
+> In other tab of X11
 - Three finger swipe up → Toggle soft keyboard
 - Three finger swipe down → Toggle extra key bar
 
@@ -444,15 +420,6 @@ Disable these Android gestures:
 - Three finger split screen
 
 They may conflict with Termux:X11 gestures.
-
-
-# Important Note ⚠️
-
-Disable these Android gestures from your phone settings:
-- Three finger screenshot
-- Three finger split screen
-
-Otherwise they may conflict with Term
 
 ---
 
