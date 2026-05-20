@@ -68,11 +68,9 @@ This provides:
 UbuntuX supports:
 - VS Code
 - BlueJ
-- OpenJDK 17
-- Git
-- Nano
 - Firefox
 - VLC
+- More other apps...
 
 Perfect for:
 - Java learners
@@ -271,7 +269,8 @@ The installer automatically:
 
 # Optional Software Installation 📦
 
-UbuntuX allows installing additional software during setup.
+UbuntuX allows installing additional software during setup.Users can install one or multiple apps during setup.
+
 
 Menu:
 
@@ -294,17 +293,42 @@ This installs all apps :
 - BlueJ
 - VLC
 
-# VS Code Installation
-It will ask for Java in VS Code
-|Option|Choice|
-|---|---|
-|1|YES|
-|2|NO|
+# Programming Languages Support 👨‍💻
 
-Enter 1 to install JDK for Java and 2 for denying
-**JDK is necessary for Java language without JDK Java programmes do not compile or run!**
----
+UbuntuX also supports multiple programming languages and development environments.
 
+You can install one or multiple languages during setup.
+
+| Option | Programming Language | Description |
+|---|---|---|
+| 1 | Java | Popular language used for Android apps, desktop software, and enterprise development |
+| 2 | Python | Beginner-friendly language used in AI, automation, scripting, and web development |
+| 3 | C | Powerful low-level language widely used for system programming |
+| 4 | C++ | Extension of C used in games, graphics, and high-performance applications |
+| 5 | C# | Modern language mainly used for .NET applications and game development with Unity |
+| 6 | JavaScript / Node.js | Popular language for web development and backend applications |
+| 7 | HTML / CSS | Used for designing and building websites |
+| 8 | PHP | Server-side language commonly used in web development |
+| 9 | Go | Fast and lightweight language developed by Google for backend and cloud applications |
+| 10 | Rust | Modern systems programming language focused on speed and memory safety |
+
+Example:
+
+```text
+Enter choices: 1 2 3 4 6
+```
+
+Multiple selections are allowed.
+
+This installs:
+
+- Java
+- Python
+- C
+- C++
+- JavaScript / Node.js
+
+UbuntuX provides a lightweight Linux development environment for learning, coding, compiling, and running programs directly on Android using Termux and Proot.
 
 # Starting UbuntuX ▶️
 
