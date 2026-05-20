@@ -38,12 +38,10 @@ Index 📚
 - [Why UbuntuX?](#why-ubuntux-)
 - [Requirements](#requirements-)
 - [Installation](#installation-)
-- [Software Installation](#software-installation-)
-- [Programming Languages Support](#programming-languages-support-)
 - [Starting UbuntuX](#starting-ubuntux-)
 - [Screenshots](#screenshots-)
 - [Hardware Acceleration](#hardware-acceleration-)
-- [Development Tools](#development-tools-)
+- [Development Tools](#programming-languages-support-)
 - [Known Issues](#known-issues-)
 - [Credits](#credits-)
 
@@ -79,7 +77,7 @@ UbuntuX supports:
 - More other apps...
 
 ### Perfect for:
-- All programmers and coders
+- All programmers and coders.
 - Support for Java, HTML, CSS, C++, C, C#, etc.
 
 ---
@@ -233,14 +231,11 @@ bash ~/UbuntuX/setup.sh
 
 The setup script automatically:
 
-✅ Configures storage  
-✅ Installs required repositories  
 ✅ Installs Ubuntu using Proot-Distro  
 ✅ Installs XFCE desktop  
 ✅ Configures audio  
 ✅ Configures hardware acceleration  
 ✅ Installs themes and icons  
-✅ Creates the `ubuntux` startup command  
 ✅ Configures desktop environment  
 ✅ Sets up Linux user account  
 
