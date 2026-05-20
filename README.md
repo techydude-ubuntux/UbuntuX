@@ -47,22 +47,16 @@ The aim of UbuntuX is to provide a clean, fast, and easy Linux setup on Android 
 
 
 ## 1. Install Termux
-
-### GitHub
 https://github.com/termux/termux-app/releases/download/v0.118.3/termux-app_v0.118.3+github-debug_universal.apk
 
 > Do NOT install Termux from Play Store because it is outdated.
 
 
 ## 2. Install Termux:X11
-
-### GitHub
 https://github.com/termux/termux-x11/releases/download/nightly/app-universal-debug.apk
 
 
 ## Install ADB AppControl App
-
-### Official Website
 https://adbappcontrol.com/en/mobile/
 
 ---
@@ -85,7 +79,7 @@ This may cause:
 
 # Enable Required Android Settings
 
--Step 1: Open Settings → About Phone
+- Step 1: Open Settings → About Phone
 - Step 2: Tap Build Number 7 times to enable Developer Options
 - Step 3: Connect to Wifi and turn on USB Debugging and Wireless Debugging
 - Step 3: Open The app and do the setup as directed in app.
@@ -94,6 +88,7 @@ This may cause:
 ```bash
 /system/bin/device_config put activity_manager max_phantom_processes 10000
 ```
+
 #### After running the command:
 > You can turn off Developer Options, Wireless Debugging, USB Debugging
   and uninstall **ADB App Control App**
@@ -149,7 +144,9 @@ The setup script automatically:
 
 # During Installation 👤
 
+
 UbuntuX will ask you to create:
+
 
 ## Linux Username
 Example:
@@ -204,6 +201,7 @@ UbuntuX also supports multiple programming languages and development environment
 
 You can install one or multiple languages during setup.
 
+
 | Option | Programming Language |
 |---|---|
 | 1 | Java |
@@ -249,6 +247,7 @@ It will launch the desktop environment.
 ```bash
 logout
 ```
+
 ---
 
 # VS Code Fix 🛠️
@@ -259,7 +258,9 @@ logout
 ```bash
 code --no-sandbox
 ```
+
 ---
+
 # Termux:X11 Recommended Settings ⚙️
 
 Open:
@@ -350,7 +351,6 @@ For best performance:
 
 # Screenshots 📸
 
-- Desktop
 - ![Desktop](Screenshots/s1.jpg)
 - macOS Theme & Dock
 - ![Desktop](Screenshots/s2.jpg)
@@ -362,6 +362,7 @@ For best performance:
 - ![Desktop](Screenshots/s7.jpg)
 - About OS
 - ![Desktop](Screenshots/s5.jpg)
+  
 ---
 
 # Credits ❤️
