@@ -194,13 +194,6 @@ Add screenshots of:
 
 UbuntuX supports hardware acceleration on supported devices using Mesa, VirGL, Zink, and Turnip drivers.
 
-Performance may vary depending on:
-
-- GPU
-- Android version
-- Mesa version
-- Device compatibility
-
 ---
 
 # Development Tools 🛠️
@@ -218,7 +211,7 @@ UbuntuX can also support:
 
 # Known Issues ⚠️
 
-- Some devices may not support hardware acceleration properly
+- Some devices may not give good performance in hardware acceleration.
 - Performance may vary across devices
 - Some applications may require additional configuration
 
@@ -347,10 +340,11 @@ This may cause:
 You should apply this fix before using UbuntuX.
 
 ---
+## Pre-Installation Process(necessary)
 
-# Fix Using Wireless ADB (No PC Required) 📱
+- **Fix Using Wireless ADB (No PC Required)** 📱
 
-## 3. Install ADB AppControl Mobile
+## Install ADB AppControl Mobile
 
 Download:
 https://adbappcontrol.com/en/mobile/
@@ -371,7 +365,6 @@ Tap:
 ```text
 Build Number
 ```
-
 7 times to enable Developer Options.
 
 Now open:
