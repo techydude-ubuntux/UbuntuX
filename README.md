@@ -193,6 +193,22 @@ This installs all apps :
 - BlueJ
 - VLC
 
+## Time Zone Configuration
+
+During installation, Ubuntu may ask you to configure time zone and region after installion of `tzdata`.
+
+Select:
+- Region: `Your Continent`
+- Timezone: `Your City or Timezone of Your country`
+
+Controls:
+- ↑ ↓ → Navigate
+- `SPACEBAR` → Select/Confirm
+- `TAB` → Move to `<OK>`
+- `ENTER` → Continue
+
+> After confirming, installation will continue automatically.
+
 # Programming Languages Support 👨‍💻
 
 UbuntuX also supports multiple programming languages and development environments.
