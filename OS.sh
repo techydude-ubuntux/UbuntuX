@@ -104,7 +104,7 @@ package() {
    yes | apt update
    yes | apt upgrade
    echo -e "${R} [${W}-${R}]${C} Checking required packages...${W}"
-   packs=(gnupg2 curl nano git xz-utils at-spi2-core xfce4 xfce4-terminal librsvg2-common menu inetutils-tools dialog exo-utils  dbus-x11 gtk2-engines-murrine gtk2-engines-pixbuf apt-transport-https glmark2 mesa-utils sl fastfetch mousepad ristretto xfce4-screenshooter mesa-vulkan-drivers )
+   packs=(gnupg2 curl nano git xz-utils at-spi2-core xfce4 xfce4-terminal librsvg2-common menu inetutils-tools dialog exo-utils  dbus-x11 gtk2-engines-murrine gtk2-engines-pixbuf apt-transport-https glmark2 mesa-utils sl fastfetch mousepad ristretto xfce4-screenshooter )
    for a in "${packs[@]}"; do
    type -p "$a" &>/dev/null || {
    echo -e "\n${R} [${W}-${R}]${G} Installing package : ${Y}$hulu${W}"
