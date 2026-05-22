@@ -120,7 +120,7 @@ done
 install_apt() {
   for apt in "$@"; do
   [[ `command -v $apt` ]] && echo -e "${Y}${apt} is already Installed!${W}" || {
-   echo -e "\n${R} [${W}-${R}]${G} Installing package : ${Y}${apt}{W}"
+   echo -e "\n${R} [${W}-${R}]${G} Installing package : ${Y}${apt}${W}"
    apt-get install ${apt} -y --no-install-recommends
 }
   done
@@ -128,7 +128,7 @@ install_apt() {
 
 install_vscode() {
 [[ $(command -v code) ]] && echo "${Y}VSCode is already Installed!${W}" || {
-echo -e "${G}Installing ${Y}VS Code${W}"
+echo -e "\n${R} [${W}-${R}]${G} Installing package : ${Y}VS Code ${W}"
 curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
 echo "deb [arch=arm64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list
