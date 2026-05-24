@@ -25,7 +25,18 @@ text="UBUNTUX - By Techy Dude"
 pad=$(( (wid - ${#text}) / 2 ))
 (( pad < 0 )) && pad=0
 printf "%*s" "$pad" ""
-echo -e "${C}UBUNTU ${R}X ${G}-${B} By Techy Dude${W}"
+echo -e "${C}UBUNTU ${R}X🚀 ${G}-${B} By Techy Dude${W}"
+fi
+}
+
+play() {
+if [[ "$TERMUX_VERSION" == googleplay* ]]; then
+
+    echo -e " ⚠️ ${Y}Termux Play Store version detected!${W}"
+    echo -e " ❌ ${R}The Play Store version is unsupported.${W}"
+    echo -e "${G}Please reinstall from F-Droid or GitHub repository.${W}"
+    exit 1
+
 fi
 }
 
@@ -114,6 +125,7 @@ bash OS.sh
 "
 }
 banner
+play
 dir
 package
 distro
