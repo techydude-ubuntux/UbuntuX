@@ -203,12 +203,11 @@ echo -e "\n${R} [${W}-${R}]${C} Firefox sucessfully installed!${W}"
 }
 
 install_bluej() {
-BLUEJ_FILE=$(ls "$term"/../home/UbuntuX/patches/BlueJ*.deb 2>/dev/null | head -n 1)
-
 [[ $(command -v bluej) ]] && echo "\n${Y} BlueJ is already Installed!${W}" || {
   banner
   echo -e "\n${R} [${W}-${R}]${C} Installing BlueJ...${W}"
   wget -O "$term"/../home/UbuntuX/patches/BlueJ-linux-arm64-5.5.0.deb https://www.bluej.org/download/files/BlueJ-linux-arm64-5.5.0.deb
+  BLUEJ_FILE=$(ls "$term"/../home/UbuntuX/patches/BlueJ*.deb 2>/dev/null | head -n 1)
   if [ -z "$BLUEJ_FILE" ]; then
   echo -e "\n❌ ${R}No BlueJ .deb file found!${W}"
   return 1
