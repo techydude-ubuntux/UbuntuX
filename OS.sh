@@ -61,9 +61,9 @@ echo -e "\n${R} [${W}-${R}]${G} Sudo Successfully Installed!${W}"
 
 login() {
 banner
-echo -e "\n${R} [${G}-${R}]${G} In username:\n ${R}1. No spaces allowed!\n 2. No special symbols allowed!\n${R} [${G}-${R}] ${G}Only lowercase letters allowed!${W}"
-read -p "\n${R} [${G}~${R}]${Y} Enter Username: ${C}" user
-read -p "\n${R} [${G}~${R}]${Y} Enter Password: ${C}" pass
+echo -e "\n${R} [${G}-${R}]${G} In username:\n ${R}1. No spaces allowed!\n 2. No special symbols allowed!\n${R} [${G}-${R}] ${G}Only lowercase letters allowed!${W}\n"
+read -p "${R} [${G}~${R}]${Y} Enter Username: ${C}" user
+read -p "${R} [${G}~${R}]${Y} Enter Password: ${C}" pass
 useradd --badname -m -s  $(which bash) ${user}
 usermod -aG sudo ${user}
 echo "root:${pass}" | chpasswd
@@ -327,7 +327,7 @@ install_menu() {
         ${Y} Example: 1 2 3 4
 EOF
 
-    read -p "\n${R} [${G}~${R}]${Y} Enter choices: ${G}" choices
+    read -p "${R} [${G}~${R}]${Y} Enter choices: ${G}" choices
     echo
 
     for opt in $choices; do
@@ -372,7 +372,7 @@ ${Y} Example:${W} 1 2 3 4
 
 EOF
 
-read -p "\n${R} [${G}~${R}]${Y} Enter choices: ${G}" hh
+read -p "${R} [${G}~${R}]${Y} Enter choices: ${G}" hh
 echo
 
 for ht in $hh; do
