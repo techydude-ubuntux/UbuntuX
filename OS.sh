@@ -274,13 +274,13 @@ sleep 1
 sleep 1
    rm -rf /usr/share/xfce4/backdrops/
 sleep 1
-   echo -e "\n${R} [${W}-${R}]${C} Installing icons and themes..${W}"
+   echo -e "\n${R} [${W}-${R}]${C} Installing icons and themes..\n${W}"
 sleep 1
    tar -xvpzf $term/../home/UbuntuX/patches/p.tar.gz -C / >/dev/null 2>&1
 sleep 1
    tar -xzpvf $term/../home/UbuntuX/patches/config.tar.gz -C /home/$user/
 sleep 1
-   echo -e "\n${R} [${W}-${R}]${C} Purging Unnecessary Files..${W}"
+   echo -e "\n${R} [${W}-${R}]${C} Purging Unnecessary Files..\n${W}"
    src="/usr/share/applications"
 
   FILES=( "panel-desktop-handler.desktop"
