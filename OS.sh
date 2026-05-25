@@ -19,7 +19,7 @@ echo "${C} ╚██████╔╝██████╔╝╚█████
 echo "${C}  ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝   ╚═╝    ╚═════╝  ${R} ╚═╝  ╚═╝${W}"
 echo -e "${B}   UbuntuX 🚀 - Minimal Termux Ubuntu - Techy Dude${W}"
 else
-text="UbuntuX 🚀 - By Techy Dude"
+text="UbuntuX 🚀 - Techy Dude"
 pad=$(( (wid - ${#text}) / 2 ))
 (( pad < 0 )) && pad=0
 printf "%*s" "$pad" ""
