@@ -19,13 +19,13 @@ echo "${C} ██║   ██║██████╔╝██║   ██║█
 echo "${C} ██║   ██║██╔══██╗██║   ██║██║╚██╗██║   ██║   ██║   ██║ ${R}  ██╔██╗ ${W}"
 echo "${C} ╚██████╔╝██████╔╝╚██████╔╝██║ ╚████║   ██║   ╚██████╔╝ ${R} ██╔╝ ██╗${W}"
 echo "${C}  ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝   ╚═╝    ╚═════╝  ${R} ╚═╝  ╚═╝${W}"
-echo -e "${B}   UbuntuX - Minimal Termux Ubuntu - By Techy Dude${W}"
+echo -e "${B}   UbuntuX - Minimal Termux Ubuntu - Techy Dude${W}"
 else
-text="UBUNTUX - By Techy Dude"
+text="UbuntuX 🚀 - Techy Dude"
 pad=$(( (wid - ${#text}) / 2 ))
 (( pad < 0 )) && pad=0
 printf "%*s" "$pad" ""
-echo -e "${C}Ubuntu${R}X🚀 ${G}-${B} By Techy Dude${W}"
+echo -e "${C}Ubuntu${R}X 🚀 ${G}-${B} Techy Dude${W}"
 fi
 }
 
