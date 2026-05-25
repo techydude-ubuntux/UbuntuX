@@ -126,7 +126,7 @@ chown "$user:$user" /home/"$user"/.bash_logout
 
 package() {
    banner
-   rm /var/lib/dpkg/info/udisks2.postinst
+   rm /var/lib/dpkg/info/udisks2.postinst >/dev/null 2>&1
    echo "" > /var/lib/dpkg/info/udisks2.postinst
    dpkg --configure -a
    apt-mark hold udisks2
