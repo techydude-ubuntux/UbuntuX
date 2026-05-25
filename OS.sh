@@ -62,15 +62,15 @@ echo -e "\n${R} [${W}-${R}]${G} Sudo Successfully Installed!${W}"
 
 login() {
 banner
-read -p $' \e[1;31m[\e[0m\e[1;77m~\e[0m\e[1;31m]\e[0m\e[1;92m Input Username [Lowercase only & No Spaces] : \e[0m\e[1;96m\en' user
-echo -e "${W}"
-read -p $' \e[1;31m[\e[0m\e[1;77m~\e[0m\e[1;31m]\e[0m\e[1;92m Input Password : \e[0m\e[1;96m\en' pass
-echo -e "${W}"
-useradd -m -s $(which bash) ${user}
+echo -e "\n${R} [${G}-${R}]${G} In username:\n ${R}1. No spaces allowed!\n 2. No special symbols allowed!\n${R} [${G}-${R}] ${G} Only lowercase letters allowed!${W}"
+read -p "${R}[${G}~${R}]${Y} Enter Username: ${C}" user
+read -p "${R}[${G}~${R}]${Y} Enter Password: ${C}" pass
+useradd --badname -m -s  $(which bash) ${user}
 usermod -aG sudo ${user}
+echo "root:${pass}" | chpasswd
 echo "${user}:${pass}" | chpasswd
-echo "$user ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
-
+echo "$user ALL=(ALL:ALL) NOPASSWD:ALL" > "/etc/sudoers.d/$user"
+chmod 440 "/etc/sudoers.d/$user"
 cat > $term/bin/UbuntuX << EOF
 #!/data/data/com.termux/files/usr/bin/bash
 
