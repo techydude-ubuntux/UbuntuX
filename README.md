@@ -151,13 +151,13 @@ UbuntuX will ask you to create:
 ## Linux Username
 
 ```text
-Enter Your Name or username of any choice in small letters without any spaces!
+Enter Your Name or username of any choice in small letters without any spaces and without special symbols!
 ```
 
 ## Linux Password
 
 ```text
-Enter Password of your choice in small letters without any spaces!
+Enter Password of your choice!
 ```
 
 The installer automatically:
