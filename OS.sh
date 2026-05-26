@@ -308,6 +308,7 @@ sleep 1
    apt update
    yes | apt upgrade >/dev/null 2>&1
    apt clean >/dev/null 2>&1
+   yes | apt purge --autoremove software-properties-common >/dev/null 2>&1
    yes | apt autoremove >/dev/null 2>&1
 
 dbus-launch plank >/dev/null 2>&1
