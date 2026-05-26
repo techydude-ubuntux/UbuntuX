@@ -32,9 +32,9 @@ fi
 play() {
 if [[ "$TERMUX_VERSION" == googleplay* ]]; then
 
-    echo -e " ⚠️ ${Y}Termux Play Store version detected!${W}"
-    echo -e " ❌ ${R}The Play Store version is unsupported!${W}"
-    echo -e "${G} Please reinstall from F-Droid or GitHub repository.${W}"
+    echo -e "\n ⚠️ ${Y}Termux Play Store version detected!${W}"
+    echo -e "❌ ${R}The Play Store version is unsupported!${W}"
+    echo -e "\n${G} Please reinstall from F-Droid or GitHub repository.${W}"
     exit 1
 
 fi
@@ -45,9 +45,9 @@ banner
 android_version_code=$(getprop ro.system.build.version.release)
 if (( $android_version_code >= 12 )); then
     sleep 1
-    echo -e "${R} Android version ${android_version_code} detected!${W}"
-    echo -e "${Y} You may experience issues like crashing!${W}"
-    echo -e "${G} To fix signal 9 issue:\n ${B}Follow the steps given on: \n ${C}Ubuntu${R}X🚀 ${B}github repository ${R} Topic: ${C}Phantom Process Fix${W}"
+    echo -e "\n ⚠️ ${R} Android version ${android_version_code} detected!${W}"
+    echo -e " ⚠️ ${R}You may experience issues like crashing!${W}"
+    echo -e "\n${R} [${W}-${R}]${G} To fix signal 9 issue:\n ${B}Follow the steps given on: \n ${C}Ubuntu${R}X🚀 ${B}github repository ${R} Topic: ${C}Phantom Process Fix${W}"
     sleep 2
 fi
 }
@@ -64,6 +64,7 @@ elif [ -d "$HOME/storage/shared/Android" ]; then
     echo -e "\n${B} mv ~/storage/shared ~${W}"
     echo -e "${B} rm -rf ~/storage${W}"
     echo -e "${B} mv ~/shared ~/Storage${W}\n"
+    echo -e "${C} bash ~/UbuntuX/setup.sh${W}"
 
   exit 1
 else
@@ -73,6 +74,7 @@ else
     echo -e "${B} mv ~/storage/shared ~${W}"
     echo -e "${B} rm -rf ~/storage${W}"
     echo -e "${B} mv ~/shared ~/Storage${W}"
+    echo -e "${C} bash ~/UbuntuX/setup.sh${W}\n"
     echo -e "\n${G} Or follow the instructions given in the GitHub repository!${W}\n"
 
   exit 1
