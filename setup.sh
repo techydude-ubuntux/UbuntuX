@@ -34,7 +34,7 @@ if [[ "$TERMUX_VERSION" == googleplay* ]]; then
 
     echo -e "\n ⚠️ ${Y}Termux Play Store version detected!${W}"
     echo -e "❌ ${R}The Play Store version is unsupported!${W}"
-    echo -e "\n${G} Please reinstall from F-Droid or GitHub repository.${W}"
+    echo -e "\n${R} [${W}-${R}]${G} Please reinstall from F-Droid or GitHub repository.${W}"
     exit 1
 
 fi
@@ -46,7 +46,7 @@ android_version_code=$(getprop ro.system.build.version.release)
 if (( $android_version_code >= 12 )); then
     sleep 1
     echo -e "\n ⚠️ ${R} Android version ${android_version_code} detected!${W}"
-    echo -e " ⚠️ ${R}You may experience issues like crashing!${W}"
+    echo -e "\n${R} [${W}-${R}]${Y} You may experience issues like crashing!${W}"
     echo -e "\n${R} [${W}-${R}]${G} To fix signal 9 issue:\n ${B}Follow the steps given on: \n ${C}Ubuntu${R}X🚀 ${B}github repository ${R} Topic: ${C}Phantom Process Fix${W}"
     sleep 2
 fi
