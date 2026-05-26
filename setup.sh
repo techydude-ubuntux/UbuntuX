@@ -100,7 +100,8 @@ distro() {
     if ! command -v proot-distro >/dev/null 2>&1; then
         echo -e "${R}[!] proot-distro not found.${W}"
         echo -e "${Y} Repo may be failing.${W}"
-        echo -e "${Y} Run 'termux-change-repo', select a working mirror, then rerun this script.${W}"
+        echo -e "${Y} Run 'termux-change-repo', select a working mirror,\n then rerun this script using ${C}bash ~/UbuntuX/setup.sh${Y}.${W}"
+        
         exit 1
     fi
 
