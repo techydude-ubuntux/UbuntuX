@@ -282,6 +282,9 @@ sleep 1
 sleep 1
    rm -rf /usr/share/plank/themes >/dev/null 2>&1
 sleep 1
+   rm -rf /usr/share/sounds >/dev/null 2>&1
+sleep 1
+   rm -rf /usr/share/fonts >/dev/null 2>&1
    echo -e "\n${R} [${W}-${R}]${C} Installing icons and themes..\n${W}"
 sleep 1
   wget -O "$term"/../home/UbuntuX/patches/mac.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/mac.tar.gz
