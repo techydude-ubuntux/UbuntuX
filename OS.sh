@@ -289,9 +289,9 @@ sleep 1
 sleep 1
   wget -O "$term"/../home/UbuntuX/patches/mac.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/mac.tar.gz
 sleep 1
-   tar -xf $term/../home/UbuntuX/patches/mac.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+   tar -xzf $term/../home/UbuntuX/patches/mac.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
-   tar -xf $term/../home/UbuntuX/patches/macclconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+   tar -xzf $term/../home/UbuntuX/patches/macclconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
    echo -e "\n${R} [${W}-${R}]${C} Purging Unnecessary Files..\n${W}"
    src="/usr/share/applications"
