@@ -148,7 +148,6 @@ package() {
   ristretto
   sl
   onboard
-  gucharmap
   mate-calc
   plank
   )
