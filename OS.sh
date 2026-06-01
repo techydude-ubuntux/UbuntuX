@@ -33,7 +33,7 @@ term="/data/data/com.termux/files/usr"
 sudo() {
 echo -e "\n${R} [${W}-${R}]${C} Installing Sudo...${W}"
 apt update -y && apt upgrade -y
-apt install sudo -y
+apt install sudo -y || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 base_packs=(
   wget
   apt-utils
@@ -88,7 +88,7 @@ sleep 3
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity >/dev/null 2>&1
 sleep 1
 
-proot-distro login  --user $user ubuntu --bind /dev/null:/proc/sys/kernel/cap_last_last --shared-tmp --fix-low-ports
+proot-distro login  --user $user ubuntu --bind /dev/null:/proc/sys/kernel/cap_last_cap --shared-tmp --fix-low-ports 
 
 exit 0
 EOF
@@ -150,7 +150,6 @@ package() {
   onboard
   gucharmap
   mate-calc
-  plank
   )
   apt install -y --no-install-recommends "${packs[@]}"
   apt purge --autoremove -y
@@ -267,7 +266,7 @@ config() {
   )
 apt install -y --no-install-recommends "${theme_packs[@]}"
   banner
-echo -e "\n${R} [${W}-${R}]${C} Downloading Required Files..\n${W}"
+echo -e "\n${R} [${W}-${R}]${C} Purging Unnecessary Files..\n${W}"
    rm -rf /usr/share/backgrounds >/dev/null 2>&1
 sleep 1
    rm -rf /usr/share/applications >/dev/null 2>&1
@@ -285,38 +284,10 @@ sleep 1
    rm -rf /usr/share/sounds >/dev/null 2>&1
 sleep 1
    rm -rf /usr/share/fonts >/dev/null 2>&1
-   echo -e "\n${R} [${W}-${R}]${C} Installing icons and themes..\n${W}"
 sleep 1
-  wget -O "$term"/../home/UbuntuX/patches/mac.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/mac.tar.gz
-sleep 1
-   tar -xzf $term/../home/UbuntuX/patches/mac.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
-sleep 1
-   tar -xzf $term/../home/UbuntuX/patches/macclconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
-sleep 1
-   echo -e "\n${R} [${W}-${R}]${C} Purging Unnecessary Files..\n${W}"
-   src="/usr/share/applications"
-
-  FILES=( "panel-desktop-handler.desktop"
-          "thunar-bulk-rename.desktop"
-          "thunar.desktop"
-          "xfce4-accessibility-settings.desktop"
-          "xfce4-color-settings.desktop"
-          "xfce4-mail-reader.desktop"
-          "xfce4-run.desktop"
-          "xfce4-session-logout.desktop"
-          "xfce4-terminal-emulator.desktop"
-          "xfce4-web-browser.desktop" )
-
-   for file in "${FILES[@]}"; do
-   rm "$src/$file" >/dev/null 2>&1
-   done
    cp -r $term/../home/Storage /home/$user/
-   rem_theme 
-   rem_icon 
-
-   echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
-   fc-cache -fv >/dev/null 2>&1
-
+   rem_theme
+   rem_icon
    echo -e "\n${R} [${W}-${R}]${C} Upgrading the System..\n${W}"
    apt update
    yes | apt upgrade >/dev/null 2>&1
@@ -324,7 +295,6 @@ sleep 1
    yes | apt purge --autoremove software-properties-common >/dev/null 2>&1
    yes | apt autoremove >/dev/null 2>&1
 
-dbus-launch plank >/dev/null 2>&1
 }
 
 install_menu() {
@@ -337,7 +307,7 @@ install_menu() {
         ${C} [${W}3${C}] VLC Media Player
         ${C} [${W}4${C}] VS Code
 
-        ${Y} Example: 1 2 3 4
+        ${Y} Example:${G} 1 2 3 4
 EOF
 
     read -p "${R} [${G}~${R}]${Y} Enter choices: ${G}" choices
@@ -381,7 +351,7 @@ ${C} [${W}8${C}] PHP
 ${C} [${W}9${C}] Go
 ${C} [${W}10${C}] Rust
 
-${Y} Example:${W} 1 2 3 4
+${Y} Example:${G} 1 2 3 4
 
 EOF
 
@@ -398,7 +368,8 @@ for ht in $hh; do
 
         2)
             echo -e "${G}Installing Python...${W}"
-            install_apt "python3 python3-pip"
+            install_apt "python3"
+            install_apt "python3-pip"
             ;;
 
         3)
@@ -426,7 +397,7 @@ for ht in $hh; do
             echo -e "${G}Installing HTML/CSS Tools...${W}"
             install_apt "nodejs"
             install_apt "npm"
-            sudo npm install -g  live-server
+            command -v npm >/dev/null 2>&1 && npm install -g live-server
             ;;
 
         8)
@@ -445,13 +416,111 @@ for ht in $hh; do
             ;;
 
         *)
-            echo -e "${R}Invalid option: $opt${W}"
+            echo -e "${R}Invalid option: $ht${W}"
             ;;
 
     esac
 done
 
 }
+
+thememenu() {
+banner
+cat << EOF
+
+${Y} ---${G} Select Theme to Install for Desktop  (Only one Allowed) ${Y}---
+
+${C} [${W}1${C}] macOS Sonoma Classic Theme (Default)
+${C} [${W}2${C}] macOS Tahoe Classic Theme
+${C} [${W}3${C}] Windows 11 Dark Theme
+${C} [${W}4${C}] Windows 11 Light Theme
+
+${Y} Example:${G} 1
+
+EOF
+
+read -n1 -p "${R} [${G}~${R}]${Y} Enter choices: ${G}" themenu
+echo
+
+if [[ ${themenu} == 2 ]]; then
+   mactahoe
+elif [[ ${themenu} == 3 ]]; then
+  windark
+elif [[ ${themenu} == 4 ]]; then
+  winlight
+else
+  macclassic
+fi
+
+ }
+
+mactahoe() {
+   echo -e "\n${R} [${W}-${R}]${C} Installing icons and themes..\n${W}"
+sleep 1
+  apt install plank -y --no-install-recommends >/dev/null 2>&1
+sleep 1
+  wget -O "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/macthemes.tar.gz
+sleep 1
+   tar -xzf $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+sleep 1
+   tar -xzf $term/../home/UbuntuX/patches/tahoeconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+sleep 1
+echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
+fc-cache -fv >/dev/null 2>&1
+sleep 1
+dbus-launch plank >/dev/null 2>&1
+sleep 1
+ }
+
+macclassic() {
+  echo -e "\n${R} [${W}-${R}]${C} Installing icons and themes..\n${W}"
+sleep 1
+  apt install plank -y --no-install-recommends >/dev/null 2>&1
+sleep 1
+  wget -O "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/macthemes.tar.gz
+sleep 1
+   tar -xzf $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+sleep 1
+   tar -xzf $term/../home/UbuntuX/patches/macclconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+sleep 1
+echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
+fc-cache -fv >/dev/null 2>&1
+sleep 1
+dbus-launch plank >/dev/null 2>&1
+sleep 1
+ }
+
+windark() {
+ echo -e "\n${R} [${W}-${R}]${C} Installing icons and themes..\n${W}"
+sleep 1
+  apt install xfce4-docklike-plugin  -y --no-install-recommends >/dev/null 2>&1
+sleep 1
+  wget -O "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/winthemes.tar.gz
+sleep 1
+tar -xzf $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+sleep 1
+tar -xzf $term/../home/UbuntuX/patches/winconfigd.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+sleep 1
+echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
+fc-cache -fv >/dev/null 2>&1
+sleep 1
+ }
+
+winlight() {
+ echo -e "\n${R} [${W}-${R}]${C} Installing icons and themes..\n${W}"
+sleep 1
+  apt install xfce4-docklike-plugin  -y --no-install-recommends >/dev/null 2>&1
+sleep 1
+  wget -O "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/winthemes.tar.gz
+sleep 1
+tar -xzf $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+sleep 1
+tar -xzf $term/../home/UbuntuX/patches/winconfigl.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+sleep 1
+echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
+fc-cache -fv >/dev/null 2>&1
+sleep 1
+ }
 
 UBUNTU_DIR="/data/data/com.termux/files/usr/var/lib/proot-distro/containers/ubuntu/rootfs"
 note() {
@@ -511,4 +580,5 @@ package
 install_menu
 programming_menu
 config
+thememenu
 note
