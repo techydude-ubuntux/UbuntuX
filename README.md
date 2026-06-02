@@ -420,11 +420,8 @@ For best performance:
 ![s3](Screenshots/s3.jpg)
 ## Installed Apps (VS Code, Firefox, VLC, etc.)
 ![s4](Screenshots/s4.jpg)
-## Utilities 
-![s6](Screenshots/s6.jpg)
+## Utilities
 ![s7](Screenshots/s7.jpg)
-## About OS
-![s5](Screenshots/s5.jpg)
   
 ---
 
