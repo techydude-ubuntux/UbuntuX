@@ -469,7 +469,7 @@ sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
 sleep 1
-dbus-launch plank >/dev/null 2>&1
+dbus-launch plank >/dev/null 2>&1 &
 sleep 1
  }
 
@@ -487,7 +487,7 @@ sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
 sleep 1
-dbus-launch plank >/dev/null 2>&1
+dbus-launch plank >/dev/null 2>&1 &
 sleep 1
  }
 
