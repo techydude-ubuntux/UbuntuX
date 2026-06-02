@@ -285,6 +285,8 @@ sleep 1
 sleep 1
    rm -rf /usr/share/fonts >/dev/null 2>&1
 sleep 1
+   rm -rf "/home/$user/.config" >/dev/null 2>&1
+sleep 1
    cp -r $term/../home/Storage /home/$user/
    rem_theme
    rem_icon
