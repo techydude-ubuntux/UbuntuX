@@ -13,6 +13,7 @@ UbuntuX transforms an Android phone into a portable Linux desktop with:
 - 🎵 Audio support with PulseAudio
 - 🖥️ Smooth Termux:X11 desktop
 - 🍎 macOS styled theme and dock
+- 🪟 Windows theme and taskbar 
 - 💻 VS Code support
 - ☕ BlueJ support for Java learners
 - 🔥 Lightweight and optimized XFCE desktop
