@@ -333,7 +333,7 @@ Termux:X11 → Preferences
 ### Output
 - Resolution Mode → `Custom`
 - Resolution → `1080x1200`
-- Filtering Mode → `Nearest`
+- Filtering Mode → `Bilinear`
 - Adjust resolution to orientation → `OFF`
 - Stretch to fit display → `OFF`
 - Reseed screen while keyboard open → `ON`
@@ -403,7 +403,7 @@ For best performance:
   - Termux:X11
 
 - Keep at least:
-  - 3GB of free RAM
+  - 2GB of free RAM
   - 6GB of free storage
 
 - Use Android dark mode
