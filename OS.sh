@@ -61,7 +61,7 @@ echo -e "\n${R} [${W}-${R}]${G} Sudo Successfully Installed!${W}"
 
 login() {
 banner
-echo -e "\n${R} [${G}-${R}]${G} In username:\n ${R}1. No spaces allowed!\n 2. No special symbols allowed!\n${R} [${G}-${R}] ${G}Only lowercase letters allowed!${W}\n"
+echo -e "\n${R} [${G}-${R}]${G} In username:\n ${R} 1. No spaces allowed!\n  2. No special symbols allowed!\n${R} [${G}-${R}] ${G}Only lowercase letters allowed!${W}\n"
 read -p "${R} [${G}~${R}]${Y} Enter Username: ${C}" user
 read -p "${R} [${G}~${R}]${Y} Enter Password: ${C}" pass
 useradd -m -s  $(which bash) ${user}
