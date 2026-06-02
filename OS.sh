@@ -33,7 +33,7 @@ term="/data/data/com.termux/files/usr"
 sudo() {
 echo -e "\n${R} [${W}-${R}]${C} Installing Sudo...${W}"
 apt update -y && apt upgrade -y
-apt install sudo -y || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+apt install sudo -y || echo -e "\n${R}❌ Sudo Installation failed!${W}\n"
 base_packs=(
   wget
   apt-utils
