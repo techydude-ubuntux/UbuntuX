@@ -142,7 +142,7 @@ package() {
   xfce4-terminal
   glmark2
   mesa-utils
-  fastfetch
+  neofetch
   xfce4-screenshooter
   mousepad
   ristretto
