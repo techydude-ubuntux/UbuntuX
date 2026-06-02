@@ -293,8 +293,7 @@ sleep 1
    echo -e "\n${R} [${W}-${R}]${C} Upgrading the System..\n${W}"
    apt update
    yes | apt upgrade
-   apt clean 
-   yes | apt purge --autoremove software-properties-common
+   yes | apt clean 
    yes | apt autoremove
 
 }
