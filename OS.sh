@@ -290,10 +290,10 @@ sleep 1
    rem_icon
    echo -e "\n${R} [${W}-${R}]${C} Upgrading the System..\n${W}"
    apt update
-   yes | apt upgrade >/dev/null 2>&1
-   apt clean >/dev/null 2>&1
-   yes | apt purge --autoremove software-properties-common >/dev/null 2>&1
-   yes | apt autoremove >/dev/null 2>&1
+   yes | apt upgrade
+   apt clean 
+   yes | apt purge --autoremove software-properties-common
+   yes | apt autoremove
 
 }
 
