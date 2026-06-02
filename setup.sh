@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 R="$(printf '\033[1;31m')"
@@ -30,7 +29,7 @@ fi
 }
 
 play() {
-echo -e "${C}Checking cpu architecture..${W}"
+echo -e "${C}Checking CPU architecture..${W}"
 
 if [ "$(uname -m)" = "armv7l" ]; then
     echo -e "${R}Sorry! armv7l architecture is not supported..${W}"
