@@ -142,6 +142,7 @@ package() {
   xfce4-terminal
   glmark2
   mesa-utils
+  mesa-vulkan-drivers
   neofetch
   xfce4-screenshooter
   mousepad
