@@ -459,7 +459,7 @@ mactahoe() {
 sleep 1
   apt install plank -y --no-install-recommends >/dev/null 2>&1
 sleep 1
-  wget -O "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/macthemes.tar.gz
+  wget -O "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/macthemes.tar.gz >/dev/null 2>&1
 sleep 1
    tar -xzf $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
@@ -477,7 +477,7 @@ macclassic() {
 sleep 1
   apt install plank -y --no-install-recommends >/dev/null 2>&1
 sleep 1
-  wget -O "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/macthemes.tar.gz
+  wget -O "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/macthemes.tar.gz >/dev/null 2>&1
 sleep 1
    tar -xzf $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
@@ -495,7 +495,7 @@ windark() {
 sleep 1
   apt install xfce4-docklike-plugin  -y --no-install-recommends >/dev/null 2>&1
 sleep 1
-  wget -O "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/winthemes.tar.gz
+  wget -O "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/winthemes.tar.gz >/dev/null 2>&1
 sleep 1
 tar -xzf $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
@@ -511,7 +511,7 @@ winlight() {
 sleep 1
   apt install xfce4-docklike-plugin  -y --no-install-recommends >/dev/null 2>&1
 sleep 1
-  wget -O "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/winthemes.tar.gz
+  wget -O "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.0/winthemes.tar.gz >/dev/null 2>&1
 sleep 1
 tar -xzf $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
