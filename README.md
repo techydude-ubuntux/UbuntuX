@@ -240,6 +240,52 @@ Enter choices: 1 2 3 4 5 6 7 8 9 10
 
 - UbuntuX provides a lightweight Linux development environment for learning, coding, compiling, and running programs directly on Android using Termux and Proot.
 
+# Desktop Theme Support 🎨
+
+UbuntuX provides multiple desktop themes and visual styles.
+
+You can install **only one theme** during setup.
+
+| Option | Desktop Theme |
+|---------|--------------|
+| 1 | macOS Sonoma Classic Theme (Default) |
+| 2 | macOS Tahoe Classic Theme |
+| 3 | Windows 11 Dark Theme |
+| 4 | Windows 11 Light Theme |
+
+Example:
+
+```text
+Enter choice: 1
+```
+> This installs the macOS Sonoma Classic Theme.
+
+### Theme Features
+
+- **macOS Sonoma Classic Theme**
+  - macOS-style desktop layout
+  - Plank Dock
+  - macOS icons and themes
+
+- **macOS Tahoe Classic Theme**
+  - Tahoe-inspired macOS appearance
+  - Plank Dock
+  - Modern macOS icons and themes
+
+- **Windows 11 Dark Theme**
+  - Windows 11 dark appearance
+  - XFCE Docklike Panel
+  - Windows-style icons and layout
+
+- **Windows 11 Light Theme**
+  - Windows 11 light appearance
+  - XFCE Docklike Panel
+  - Windows-style icons and layout
+
+- UbuntuX automatically installs required icons, themes, fonts, and desktop configurations.
+- Font cache is rebuilt automatically after installation.
+- Only one desktop theme can be selected during setup.
+
 ---
 
 # Starting UbuntuX ▶️
