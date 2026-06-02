@@ -30,6 +30,15 @@ fi
 }
 
 play() {
+echo -e "${C}Checking cpu architecture..${W}"
+
+if [ "$(uname -m)" = "armv7l" ]; then
+    echo -e "${R}Sorry! armv7l architecture is not supported..${W}"
+    exit 1
+fi
+
+echo -e "${G}CPU architecture is OK..!${W}"
+
 if [[ "$TERMUX_VERSION" == googleplay* ]]; then
 
     echo -e "\n ⚠️ ${Y}Termux Play Store version detected!${W}"
