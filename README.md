@@ -415,13 +415,6 @@ For best performance:
 
 ## Desktop
 ![s1](Screenshots/s1.jpg)
-## macOS Theme & Dock
-![s2](Screenshots/s2.jpg)
-![s3](Screenshots/s3.jpg)
-## Installed Apps (VS Code, Firefox, VLC, etc.)
-![s4](Screenshots/s4.jpg)
-## Utilities
-![s7](Screenshots/s7.jpg)
   
 ---
 
