@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 R="$(printf '\033[1;31m')"
 G="$(printf '\033[1;32m')"
