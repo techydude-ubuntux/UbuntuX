@@ -113,7 +113,7 @@ distro() {
         exit 1
     fi
 
-    proot-distro install ubuntu:questing >/dev/null 2>&1
+    proot-distro install ubuntu:noble >/dev/null 2>&1
     termux-reload-settings
 
     cp ~/UbuntuX/OS.sh /$UBUNTU_DIR/root/
