@@ -119,8 +119,6 @@ distro() {
     proot-distro install ubuntu:noble >/dev/null 2>&1
     termux-reload-settings
 
-    cp ~/UbuntuX/OS.sh /$UBUNTU_DIR/root/
-
     if [[ ! -d "$UBUNTU_DIR" ]]; then
         echo -e "${R} [${W}-${R}]${R} Error Installing Distro !${W}"
     fi
@@ -146,7 +144,7 @@ clean() {
 
 ubuntu() {
 proot-distro login ubuntu -- bash -c "
-bash OS.sh
+bash /data/data/com.termux/files/home/UbuntuX/OS.sh
 "
 }
 banner
