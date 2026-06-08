@@ -27,7 +27,6 @@ pad=$(( (wid - ${#text}) / 2 ))
 printf "%*s" "$pad" ""
 echo -e "${C}Ubuntu${R}X 🚀 ${G}-${B} Techy Dude${W}"
 fi
-sleep 1
 }
 
 play() {
