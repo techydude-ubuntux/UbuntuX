@@ -55,7 +55,7 @@ base_packs=(
   dbus-x11
   apt-transport-https
  )
- apt install -y "${base_packs[@]}"
+ apt install -y "${base_packs[@]}" --no-install-recommends
  locale-gen en_US.UTF-8
 echo -e "\n${R} [${W}-${R}]${G} Sudo Successfully Installed!${W}"
 }
