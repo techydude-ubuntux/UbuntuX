@@ -91,8 +91,8 @@ fi
 package() {
 echo -e "${R} [${W}-${R}]${C} Checking for Installing packages...\n ${R}[${W}-${R}]${Y} Please wait for two minutes...${W}"
 yes | pkg up
-pkg install root-repo x11-repo -y --no-install-recommends >/dev/null 2>&1
-pkg install tur-repo -y >/dev/null 2>&1
+pkg install root-repo x11-repo -y --no-install-recommends 
+pkg install tur-repo -y
 pkg install proot-distro pulseaudio termux-x11-nightly virglrenderer-android mesa mesa-zink virglrenderer-mesa-zink vulkan-loader-android -y --no-install-recommends
 }
 distro() {
