@@ -8,6 +8,7 @@ W="$(printf '\033[1;37m')"
 C="$(printf '\033[1;36m')"
 
 banner() {
+sleep 1
 clear
 wid=$(stty size | cut -d ' ' -f 2)
 if (( wid  >= 66 )); then
