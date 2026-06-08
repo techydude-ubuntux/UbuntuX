@@ -289,7 +289,10 @@ sleep 1
 sleep 1
    rm -rf "/home/$user/.config" >/dev/null 2>&1
 sleep 1
+   mkdir -p /home/$user/Desktop
+sleep 1
    cp -r $term/../home/Storage /home/$user/
+sleep 1
    rem_theme
    rem_icon
    echo -e "\n${R} [${W}-${R}]${C} Upgrading the System..\n${W}"
@@ -524,11 +527,6 @@ echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
 sleep 1
  }
-
-homedir() {
-mkdir -p /home/$user/Desktop
-sed -i 's|^XDG_DESKTOP_DIR=.*|XDG_DESKTOP_DIR="$HOME/Desktop"|' /home/$user/.config/user-dirs.dirs
-}
 
 UBUNTU_DIR="/data/data/com.termux/files/usr/var/lib/proot-distro/containers/ubuntu/rootfs"
 note() {
