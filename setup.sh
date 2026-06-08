@@ -8,6 +8,7 @@ C="$(printf '\033[1;36m')"
 W="$(printf '\033[1;37m')"
 
 banner() {
+sleep 1
 clear
 wid=$(stty size | cut -d ' ' -f 2)
 if (( wid  >= 66 )); then
@@ -26,6 +27,7 @@ pad=$(( (wid - ${#text}) / 2 ))
 printf "%*s" "$pad" ""
 echo -e "${C}Ubuntu${R}X 🚀 ${G}-${B} Techy Dude${W}"
 fi
+sleep 1
 }
 
 play() {
