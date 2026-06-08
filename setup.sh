@@ -94,7 +94,9 @@ echo -e "${R} [${W}-${R}]${C} Checking for Installing packages...\n ${R}[${W}-${
 yes | pkg up
 pkg install root-repo x11-repo -y --no-install-recommends 
 pkg install tur-repo -y
-pkg install proot-distro pulseaudio termux-x11-nightly virglrenderer-android mesa mesa-zink virglrenderer-mesa-zink vulkan-loader-android -y --no-install-recommends
+pkg install proot-distro pulseaudio termux-x11-nightly virglrenderer-android mesa -y --no-install-recommends
+pkg install mesa-zink virglrenderer-mesa-zink vulkan-loader-android -y --no-install-recommends
+apt autoremove -y 
 }
 distro() {
    banner
