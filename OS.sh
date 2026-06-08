@@ -525,6 +525,11 @@ fc-cache -fv >/dev/null 2>&1
 sleep 1
  }
 
+homedir() {
+mkdir -p /home/$user/Desktop
+sed -i 's|^XDG_DESKTOP_DIR=.*|XDG_DESKTOP_DIR="$HOME/Desktop"|' /home/$user/.config/user-dirs.dirs
+}
+
 UBUNTU_DIR="/data/data/com.termux/files/usr/var/lib/proot-distro/containers/ubuntu/rootfs"
 note() {
     if [ -d "$UBUNTU_DIR" ]; then
@@ -584,4 +589,5 @@ install_menu
 programming_menu
 config
 thememenu
+homedir
 note
