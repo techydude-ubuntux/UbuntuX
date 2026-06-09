@@ -587,5 +587,4 @@ install_menu
 programming_menu
 config
 thememenu
-homedir
 note
