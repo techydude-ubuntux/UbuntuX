@@ -220,14 +220,15 @@ fi
     install_apt "openjdk-25-jdk"
 
     dpkg -i "$BLUEJ_FILE" && apt --fix-broken install -y
+
+    if dpkg -s bluej >/dev/null 2>&1; then
     sleep 1
-    rm -rf /usr/share/pixmaps/bluej.xpm /usr/share/icons/hicolor/256x256/apps/bluej.png /usr/share/icons/hicolor/48x48/apps/bluej.png
+    rm -rf /usr/share/pixmaps/bluej.xpm >/dev/null 2>&1
     sleep 1
     cp -rf /usr/share/bluej/images/bluej-icon-256.png /usr/share/pixmaps/
     sleep 1
     mv /usr/share/pixmaps/bluej-icon-256.png /usr/share/pixmaps/bluej.png
     sleep 1
-    if dpkg -s bluej >/dev/null 2>&1; then
         echo -e "\n${R} [${W}-${R}]${C} BlueJ Installed Successfully${W}"
     else
         echo -e "\n❌${R}BlueJ installation failed!${W}"
@@ -534,6 +535,12 @@ fc-cache -fv >/dev/null 2>&1
 sleep 1
  }
 
+ blicon() {
+ sleep 1
+ rm -rf /usr/share/pixmaps/bluej.xpm /usr/share/icons/hicolor/256x256/apps/bluej.png /usr/share/icons/hicolor/48x48/apps/bluej.png >/dev/null 2>&1
+ sleep 1
+ }
+
 UBUNTU_DIR="/data/data/com.termux/files/usr/var/lib/proot-distro/containers/ubuntu/rootfs"
 note() {
     if [ -d "$UBUNTU_DIR" ]; then
@@ -593,4 +600,5 @@ install_menu
 programming_menu
 config
 thememenu
+blicon
 note
