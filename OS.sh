@@ -147,7 +147,6 @@ package() {
   mousepad
   ristretto
   sl
-  onboard
   gucharmap
   mate-calc
   )
