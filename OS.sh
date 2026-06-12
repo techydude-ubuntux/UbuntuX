@@ -89,7 +89,7 @@ sleep 3
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity >/dev/null 2>&1
 sleep 1
 
-proot-distro login  --user $user ubuntu --bind /dev/null:/proc/sys/kernel/cap_last_cap --shared-tmp --fix-low-ports 
+proot-distro login  --user $user ubuntu --bind /dev/null:/proc/sys/kernel/cap_last_cap --shared-tmp --fix-low-ports
 
 exit 0
 EOF
@@ -102,11 +102,9 @@ if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
     export DBUS_SESSION_BUS_ADDRESS
 fi
 
-{ rm -rf .cache
+{ export XDG_RUNTIME_DIR=/${TMPDIR}
 export PULSE_SERVER=127.0.0.1
 export GALLIUM_DRIVER=virpipe
-export MESA_GL_VERSION_OVERRIDE=3.0
-export MESA_GLES_VERSION_OVERRIDE=3.0
 unset vblank_mode
 export TERM=xterm-256color
 export LANG=C.UTF-8
