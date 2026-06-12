@@ -299,10 +299,10 @@ sleep 1
    rem_theme
    rem_icon
    echo -e "\n${R} [${W}-${R}]${C} Upgrading the System..\n${W}"
-   apt update
-   yes | apt upgrade
-   yes | apt clean 
-   yes | apt autoremove
+   apt update -y && apt upgrade -y
+   apt purge aria2 --autoremove -y
+   apt clean -y
+   apt autoremove -y
 
 }
 
