@@ -147,7 +147,6 @@ package() {
   mousepad
   ristretto
   sl
-  gucharmap
   mate-calc
   )
   apt install -y --no-install-recommends "${packs[@]}"
