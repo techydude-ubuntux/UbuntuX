@@ -102,6 +102,7 @@ distro() {
    banner
 cat >> ~/.bashrc << 'EOF'
 export GALLIUM_DRIVER=zink
+unset vblank_mode=0 
 EOF
     echo -e "\n${R} [${W}-${R}]${C} Checking for Distro...${W}"
     termux-reload-settings
