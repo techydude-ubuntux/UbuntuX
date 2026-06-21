@@ -96,13 +96,13 @@ EOF
 
 chmod +x $term/bin/UbuntuX
 
-cat >> /home/"$user"/.bashrc << 'EOF'
+cat >> /etc/bash.bashrc << 'EOF'
 if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
     eval $(dbus-launch --sh-syntax)
     export DBUS_SESSION_BUS_ADDRESS
 fi
 
-{ export XDG_RUNTIME_DIR=/${TMPDIR}
+{ export XDG_RUNTIME_DIR=/tmp
 export PULSE_SERVER=127.0.0.1
 export GALLIUM_DRIVER=virpipe
 unset vblank_mode
@@ -112,16 +112,11 @@ export DISPLAY=:0
 dbus-launch --exit-with-session xfce4-session & } >/dev/null 2>&1
 EOF
 
-chown "$user:$user" /home/"$user"/.bashrc
-
 cat >> /home/"$user"/.bash_logout << 'EOF'
 kill -9 $(pgrep -f "termux.x11") >/dev/null 2>&1
 kill -9 $(pgrep -f "virgl") >/dev/null 2>&1
 kill -9 $(pgrep -f "pulseaudio") >/dev/null 2>&1
 EOF
-
-chown "$user:$user" /home/"$user"/.bash_logout
-
 }
 
 package() {
