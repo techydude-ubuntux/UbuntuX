@@ -109,13 +109,18 @@ unset vblank_mode
 export TERM=xterm-256color
 export LANG=C.UTF-8
 export DISPLAY=:0
-dbus-launch --exit-with-session xfce4-session & } >/dev/null 2>&1
+if [ -z "$XFCE_STARTED" ]; then
+export XFCE_STARTED=1
+dbus-launch --exit-with-session xfce4-session &
+fi
 EOF
 
 cat >> /home/"$user"/.bash_logout << 'EOF'
 kill -9 $(pgrep -f "termux.x11") >/dev/null 2>&1
 kill -9 $(pgrep -f "virgl") >/dev/null 2>&1
 kill -9 $(pgrep -f "pulseaudio") >/dev/null 2>&1
+rm -rf /tmp/.X1-lock
+rm -rf /tmp/.X11-unix/X1
 EOF
 }
 
