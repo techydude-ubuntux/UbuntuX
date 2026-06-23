@@ -105,7 +105,7 @@ fi
 export XDG_RUNTIME_DIR=/tmp
 export PULSE_SERVER=127.0.0.1
 export GALLIUM_DRIVER=virpipe
-unset vblank_mode
+export vblank_mode=0
 export TERM=xterm-256color
 export LANG=C.UTF-8
 export DISPLAY=:0
