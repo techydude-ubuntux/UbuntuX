@@ -78,13 +78,13 @@ kill -9 \$(pgrep -f "termux.x11") >/dev/null 2>&1
 kill -9 \$(pgrep -f "virgl") >/dev/null 2>&1
 kill -9 \$(pgrep -f "pulseaudio") >/dev/null 2>&1
 
-{ virgl_test_server_android & } >/dev/null 2>&1
+{ MESA_NO_ERROR=1 MESA_GL_VERSION_OVERRIDE=4.3COMPAT MESA_GLES_VERSION_OVERRIDE=3.2 GALLIUM_DRIVER=zink vblank_mode=0 virgl_test_server --use-egl-surfaceless & } >/dev/null 2>&1
 
 pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
 
 export XDG_RUNTIME_DIR=\${TMPDIR}
 termux-x11 :0 -ac >/dev/null 2>&1 &
-sleep 3
+sleep 1
 
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity >/dev/null 2>&1
 sleep 1
@@ -102,7 +102,7 @@ if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
     export DBUS_SESSION_BUS_ADDRESS
 fi
 
-{ export XDG_RUNTIME_DIR=/tmp
+export XDG_RUNTIME_DIR=/tmp
 export PULSE_SERVER=127.0.0.1
 export GALLIUM_DRIVER=virpipe
 unset vblank_mode
@@ -111,7 +111,7 @@ export LANG=C.UTF-8
 export DISPLAY=:0
 if [ -z "$XFCE_STARTED" ]; then
 export XFCE_STARTED=1
-dbus-launch --exit-with-session xfce4-session &
+{ dbus-launch --exit-with-session xfce4-session & } >/dev/null 2>&1
 fi
 EOF
 
@@ -141,8 +141,7 @@ package() {
   xfce4-terminal
   glmark2
   mesa-utils
-  mesa-vulkan-drivers
-  neofetch
+  fastfetch
   xfce4-screenshooter
   mousepad
   ristretto
