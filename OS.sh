@@ -346,7 +346,7 @@ EOF
                 install_bluej
                 ;;
             3)
-                install_apt "vlc"
+                apt install vlc -y
                 ;;
             4)
                 install_vscode
