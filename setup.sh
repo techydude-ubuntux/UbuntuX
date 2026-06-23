@@ -95,14 +95,14 @@ yes | pkg up
 pkg install root-repo x11-repo -y --no-install-recommends 
 pkg install tur-repo -y
 pkg install proot-distro pulseaudio termux-x11-nightly -y --no-install-recommends
-pkg install mesa-zink vulkan-loader-android virglrenderer-android -y --no-install-recommends
+pkg install mesa-zink vulkan-loader-android virglrenderer-mesa-zink -y --no-install-recommends
 apt autoremove -y 
 }
 distro() {
    banner
 cat >> ~/.bashrc << 'EOF'
 export GALLIUM_DRIVER=zink
-unset vblank_mode
+export vblank_mode=0
 EOF
     echo -e "\n${R} [${W}-${R}]${C} Checking for Distro...${W}"
     termux-reload-settings
@@ -120,7 +120,7 @@ EOF
         exit 1
     fi
 
-    proot-distro install ubuntu:noble >/dev/null 2>&1
+    proot-distro install ubuntu:resolute >/dev/null 2>&1
     termux-reload-settings
 
     if [[ ! -d "$UBUNTU_DIR" ]]; then
