@@ -63,8 +63,15 @@ echo -e "\n${R} [${W}-${R}]${G} Sudo Successfully Installed!${W}"
 login() {
 banner
 echo -e "\n${R} [${G}-${R}]${G} In username:\n ${R} 1. No spaces allowed!\n  2. No special symbols allowed!\n${R} [${G}-${R}] ${G}Only lowercase letters allowed!${W}\n"
-read -p "${R} [${G}~${R}]${Y} Enter Username: ${C}" user
-read -p "${R} [${G}~${R}]${Y} Enter Password: ${C}" pass
+while true; do
+    read -p "${R} [${G}~${R}]${Y} Enter Username: ${C}" user
+    read -p "${R} [${G}~${R}]${Y} Enter Password: ${C}" pass
+
+    if [[ -n "$user" && -n "$pass" ]]; then
+        break
+    fi
+echo -e "${R}[!] Username and Password cannot be empty.${N}"
+done
 useradd -m -s  $(which bash) ${user}
 usermod -aG sudo ${user}
 echo "root:${pass}" | chpasswd
@@ -122,6 +129,15 @@ kill -9 $(pgrep -f "pulseaudio") >/dev/null 2>&1
 rm -rf /tmp/.X1-lock
 rm -rf /tmp/.X11-unix/X1
 EOF
+
+cat >> /root/.bash_logout << 'EOF'
+kill -9 $(pgrep -f "termux.x11") >/dev/null 2>&1
+kill -9 $(pgrep -f "virgl") >/dev/null 2>&1
+kill -9 $(pgrep -f "pulseaudio") >/dev/null 2>&1
+rm -rf /tmp/.X1-lock
+rm -rf /tmp/.X11-unix/X1
+EOF
+
 }
 
 package() {
@@ -287,11 +303,11 @@ sleep 1
 sleep 1
    rm -rf /usr/share/sounds >/dev/null 2>&1
 sleep 1
-   rm -rf /usr/share/fonts >/dev/null 2>&1
-sleep 1
    rm -rf "/home/$user/.config" >/dev/null 2>&1
 sleep 1
    mkdir -p /home/$user/Desktop
+sleep 1
+   mkdir -p /root/Desktop
 sleep 1
    cp -r $term/../home/Storage /home/$user/
 sleep 1
@@ -469,9 +485,9 @@ sleep 1
 sleep 1
   wget -O "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/macthemes.tar.gz
 sleep 1
-   tar -xzf $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+   tar -xzf --overwrite $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
-   tar -xzf $term/../home/UbuntuX/patches/tahoeconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+   tar -xzf --overwrite $term/../home/UbuntuX/patches/tahoeconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
@@ -487,9 +503,9 @@ sleep 1
 sleep 1
   wget -O "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/macthemes.tar.gz
 sleep 1
-   tar -xzf $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+   tar -xzf --overwrite $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
-   tar -xzf $term/../home/UbuntuX/patches/macclconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+   tar -xzf --overwrite $term/../home/UbuntuX/patches/macclconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
@@ -505,9 +521,9 @@ sleep 1
 sleep 1
   wget -O "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/winthemes.tar.gz
 sleep 1
-tar -xzf $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+tar -xzf --overwrite $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
-tar -xzf $term/../home/UbuntuX/patches/winconfigd.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+tar -xzf --overwrite $term/../home/UbuntuX/patches/winconfigd.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
@@ -521,9 +537,9 @@ sleep 1
 sleep 1
   wget -O "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/winthemes.tar.gz
 sleep 1
-tar -xzf $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+tar -xzf --overwrite $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
-tar -xzf $term/../home/UbuntuX/patches/winconfigl.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+tar -xzf --overwrite $term/../home/UbuntuX/patches/winconfigl.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
@@ -535,6 +551,10 @@ sleep 1
  rm -rf /usr/share/pixmaps/bluej.xpm /usr/share/icons/hicolor/256x256/apps/bluej.png /usr/share/icons/hicolor/48x48/apps/bluej.png >/dev/null 2>&1
  sleep 1
  rm -rf /usr/share/applications/gucharmap.desktop /usr/share/applications/onboard.desktop >/dev/null 2>&1
+ sleep 1
+ rm -rf /root/.config/
+ sleep 1
+ cp -r /home/$user/.config /root/
  sleep 1
  }
 
