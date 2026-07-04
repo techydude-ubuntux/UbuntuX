@@ -157,11 +157,12 @@ package() {
   xfce4-terminal
   glmark2
   mesa-utils
-  fastfetch
   xfce4-screenshooter
   mousepad
   ristretto
   sl
+  vkmark
+  vulkan-tools
   mate-calc
   )
   apt install -y --no-install-recommends "${packs[@]}"
@@ -181,7 +182,7 @@ install_apt() {
 }
 
 install_vscode() {
-[[ $(command -v code) ]] && echo "\n${Y} VSCode is already Installed!${W}" || {
+[[ $(command -v code) ]] && echo -e "\n${Y} VSCode is already Installed!${W}" || {
 banner
 echo -e "\n${R} [${W}-${R}]${C} Installing VS Code...${W}"
 curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -200,7 +201,7 @@ echo -e "\n${R} [${W}-${R}]${C} VS code sucessfully installed!${W}"
 }
 
 install_firefox() {
-[[ $(command -v firefox) ]] && echo "\n${Y} Firefox is already Installed!${W}" || {
+[[ $(command -v firefox) ]] && echo -e "\n${Y} Firefox is already Installed!${W}" || {
 banner
 echo -e "\n${R} [${W}-${R}]${C} Installing Firefox...${W}"
 rm -f /etc/apt/sources.list.d/*mozilla* && rm -f /etc/apt/sources.list.d/*firefox*
@@ -218,7 +219,7 @@ echo -e "\n${R} [${W}-${R}]${C} Firefox sucessfully installed!${W}"
 }
 
 install_bluej() {
-[[ $(command -v bluej) ]] && echo "\n${Y} BlueJ is already Installed!${W}" || {
+[[ $(command -v bluej) ]] && echo -e "\n${Y} BlueJ is already Installed!${W}" || {
   banner
   echo -e "\n${R} [${W}-${R}]${C} Installing BlueJ...${W}"
   wget -O "$term"/../home/UbuntuX/patches/BlueJ-linux-arm64-5.5.0.deb https://www.bluej.org/download/files/BlueJ-linux-arm64-5.5.0.deb
@@ -485,9 +486,9 @@ sleep 1
 sleep 1
   wget -O "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/macthemes.tar.gz
 sleep 1
-   tar -xzf --overwrite $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+   tar --overwrite -xzf $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
-   tar -xzf --overwrite $term/../home/UbuntuX/patches/tahoeconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+   tar --overwrite -xzf $term/../home/UbuntuX/patches/tahoeconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
@@ -503,9 +504,9 @@ sleep 1
 sleep 1
   wget -O "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/macthemes.tar.gz
 sleep 1
-   tar -xzf --overwrite $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+   tar --overwrite -xzf $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
-   tar -xzf --overwrite $term/../home/UbuntuX/patches/macclconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+   tar --overwrite -xzf $term/../home/UbuntuX/patches/macclconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
@@ -521,9 +522,9 @@ sleep 1
 sleep 1
   wget -O "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/winthemes.tar.gz
 sleep 1
-tar -xzf --overwrite $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+tar --overwrite -xzf $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
-tar -xzf --overwrite $term/../home/UbuntuX/patches/winconfigd.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+tar --overwrite -xzf $term/../home/UbuntuX/patches/winconfigd.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
@@ -537,9 +538,9 @@ sleep 1
 sleep 1
   wget -O "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/winthemes.tar.gz
 sleep 1
-tar -xzf --overwrite $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+tar --overwrite -xzf $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
-tar -xzf --overwrite $term/../home/UbuntuX/patches/winconfigl.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+tar --overwrite -xzf $term/../home/UbuntuX/patches/winconfigl.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
