@@ -149,8 +149,7 @@ package() {
    dpkg --configure -a
    apt-mark hold udisks2
    apt purge --autoremove -y
-   yes | apt update
-   yes | apt upgrade
+   apt update -y && apt upgrade -y
    echo -e "\n${R} [${W}-${R}]${C} Checking required packages...${W}"
    packs=(
   xfce4
