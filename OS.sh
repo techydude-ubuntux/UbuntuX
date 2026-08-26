@@ -553,12 +553,25 @@ sleep 1
  sleep 1
  rm -rf /usr/share/pixmaps/bluej.xpm /usr/share/icons/hicolor/256x256/apps/bluej.png /usr/share/icons/hicolor/48x48/apps/bluej.png >/dev/null 2>&1
  sleep 1
- rm -rf /usr/share/applications/gucharmap.desktop /usr/share/applications/onboard.desktop /usr/share/applications/mate-calc.desktop >/dev/null 2>&1
- sleep 1
  rm -rf /root/.config/
  sleep 1
  cp -r /home/$user/.config /root/
  sleep 1
+ orphan="/usr/share/applications"
+ dpkg -s bluej >/dev/null 2>&1 || rm -f "$orphan/bluej.desktop"
+ dpkg -s code >/dev/null 2>&1 || {
+        rm -f "$orphan/code.desktop"
+        rm -f "$orphan/code-url-handler.desktop"
+    }
+
+    dpkg -s firefox >/dev/null 2>&1 || rm -f "$orphan/firefox.desktop"
+    dpkg -s gucharmap >/dev/null 2>&1 || rm -f "$orphan/gucharmap.desktop"
+    dpkg -s mate-calc >/dev/null 2>&1 || rm -f "$orphan/mate-calc.desktop"
+    dpkg -s onboard >/dev/null 2>&1 || rm -f "$orphan/onboard.desktop"
+    dpkg -s openjdk-25-jdk >/dev/null 2>&1 || rm -f "$orphan/openjdk-25-java.desktop"
+    dpkg -s plank >/dev/null 2>&1 || rm -f "$orphan/plank.desktop"
+    dpkg -s python3 >/dev/null 2>&1 || rm -f "$orphan/python3.13.desktop"
+    dpkg -s vlc >/dev/null 2>&1 || rm -f "$orphan/vlc.desktop"
  }
 
 UBUNTU_DIR="/data/data/com.termux/files/usr/var/lib/proot-distro/containers/ubuntu/rootfs"
