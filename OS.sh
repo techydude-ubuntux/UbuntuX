@@ -50,6 +50,7 @@ base_packs=(
   at-spi2-core
   librsvg2-common
   menu
+  ca-certificates
   inetutils-tools
   exo-utils
   dbus-x11
@@ -162,7 +163,7 @@ package() {
   sl
   vkmark
   vulkan-tools
-  mate-calc
+  fastfetch
   )
   apt install -y --no-install-recommends "${packs[@]}"
   apt purge --autoremove -y
@@ -230,7 +231,7 @@ fi
 
     install_apt "openjdk-25-jdk"
 
-    dpkg -i "$BLUEJ_FILE" && apt --fix-broken install -y
+    apt install ./"$BLUEJ_FILE" && apt --fix-broken install -y
 
     if dpkg -s bluej >/dev/null 2>&1; then
     sleep 1
@@ -280,6 +281,8 @@ config() {
   hicolor-icon-theme
   fonts-dejavu
   fonts-dejavu-core
+  fonts-liberation
+  fonts-freefont-ttf
   ncurses-term
   hunspell-en-us
   dictionaries-common
@@ -550,7 +553,7 @@ sleep 1
  sleep 1
  rm -rf /usr/share/pixmaps/bluej.xpm /usr/share/icons/hicolor/256x256/apps/bluej.png /usr/share/icons/hicolor/48x48/apps/bluej.png >/dev/null 2>&1
  sleep 1
- rm -rf /usr/share/applications/gucharmap.desktop /usr/share/applications/onboard.desktop >/dev/null 2>&1
+ rm -rf /usr/share/applications/gucharmap.desktop /usr/share/applications/onboard.desktop /usr/share/applications/mate-calc.desktop >/dev/null 2>&1
  sleep 1
  rm -rf /root/.config/
  sleep 1
