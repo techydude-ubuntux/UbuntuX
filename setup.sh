@@ -121,7 +121,7 @@ EOF
         exit 1
     fi
 
-    proot-distro install ubuntu:noble >/dev/null 2>&1
+    proot-distro install ubuntu:resolute >/dev/null 2>&1
     termux-reload-settings
 
     if [[ ! -d "$UBUNTU_DIR" ]]; then
@@ -148,7 +148,7 @@ clean() {
 }
 
 ubuntu() {
-proot-distro login ubuntu -- bash -c "
+proot-distro login ubuntu --bash -c "
 bash /data/data/com.termux/files/home/UbuntuX/OS.sh
 "
 }
