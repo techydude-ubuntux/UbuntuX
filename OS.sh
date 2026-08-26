@@ -46,6 +46,7 @@ base_packs=(
   curl
   nano
   git
+  software-properties-common
   xz-utils
   at-spi2-core
   librsvg2-common
@@ -205,7 +206,6 @@ install_firefox() {
 banner
 echo -e "\n${R} [${W}-${R}]${C} Installing Firefox...${W}"
 rm -f /etc/apt/sources.list.d/*mozilla* && rm -f /etc/apt/sources.list.d/*firefox*
-apt install software-properties-common --no-install-recommends -y
 add-apt-repository -y ppa:mozillateam
 tee /etc/apt/preferences.d/mozilla-firefox <<EOF
 Package: firefox*
