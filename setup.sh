@@ -148,7 +148,7 @@ clean() {
 }
 
 ubuntu() {
-proot-distro login ubuntu --bash -c "
+proot-distro login ubuntu -- bash -c "
 bash /data/data/com.termux/files/home/UbuntuX/OS.sh
 "
 }
