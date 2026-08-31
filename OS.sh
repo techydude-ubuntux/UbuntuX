@@ -342,8 +342,9 @@ install_menu() {
         ${C} [${W}2${C}] BlueJ
         ${C} [${W}3${C}] VLC Media Player
         ${C} [${W}4${C}] VS Code
+        ${C} [${W}5${C}] Google Chrome
 
-        ${Y} Example:${G} 1 2 3 4
+        ${Y} Example:${G} 2 3 5
 EOF
 
     read -p "${R} [${G}~${R}]${Y} Enter choices: ${G}" choices
@@ -363,6 +364,10 @@ EOF
             4)
                 install_vscode
                 ;;
+                
+            5)  install_chrome
+                ;;
+                
             *)
                 echo -e "${R} Invalid option: $opt${W}"
                 ;;
