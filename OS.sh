@@ -32,7 +32,7 @@ arch=$(uname -m)
 term="/data/data/com.termux/files/usr"
 
 sudo() {
-echo -e "\n${R} [${W}-${R}]${C} Installing Sudo...${W}"
+echo -e "\n${R} [${W}-${R}]${C} Installing Sudo & System Utilities...${W}"
 apt update -y && apt upgrade -y
 apt install sudo -y || echo -e "\n${R}❌ Sudo Installation failed!${W}\n"
 base_packs=(
@@ -195,9 +195,7 @@ Pin: origin packages.microsoft.com
 Pin-Priority: 1001
 EOF
 apt update -y && apt upgrade -y
-apt install code --no-install-recommends -y
-sleep 1
-echo -e "\n${R} [${W}-${R}]${C} VS code sucessfully installed!${W}"
+apt install code --no-install-recommends -y || echo -e "\n${R} [${W}-${R}]${C} VS code sucessfully installed!${W}"
   }
 }
 
@@ -213,16 +211,15 @@ Pin: release o=LP-PPA-mozillateam
 Pin-Priority: 1001
 EOF
 apt update && apt upgrade -y
-apt install firefox --no-install-recommends -y
-echo -e "\n${R} [${W}-${R}]${C} Firefox sucessfully installed!${W}"
+apt install firefox --no-install-recommends -y || echo -e "\n${R} [${W}-${R}]${C} Firefox sucessfully installed!${W}"
   }
 }
 
 install_bluej() {
 [[ $(command -v bluej) ]] && echo -e "\n${Y} BlueJ is already Installed!${W}" || {
   banner
-  echo -e "\n${R} [${W}-${R}]${C} Installing BlueJ...${W}"
-  wget -O "$term"/../home/UbuntuX/patches/BlueJ-linux-arm64-5.5.0.deb https://www.bluej.org/download/files/BlueJ-linux-arm64-5.5.0.deb
+  echo -e "\n${R} [${W}-${R}]${C} Downloading BlueJ...${W}"
+  wget -qO "$term"/../home/UbuntuX/patches/BlueJ-linux-arm64-5.5.0.deb https://www.bluej.org/download/files/BlueJ-linux-arm64-5.5.0.deb
   BLUEJ_FILE=$(ls "$term"/../home/UbuntuX/patches/BlueJ*.deb 2>/dev/null | head -n 1)
   if [ -z "$BLUEJ_FILE" ]; then
   echo -e "\n❌ ${R}No BlueJ .deb file found!${W}"
@@ -230,7 +227,7 @@ install_bluej() {
 fi
 
     install_apt "openjdk-25-jdk"
-
+    echo -e "\n${R} [${W}-${R}]${C} Installing BlueJ...${W}"
     apt install ./"$BLUEJ_FILE" && apt --fix-broken install -y
 
     if dpkg -s bluej >/dev/null 2>&1; then
@@ -245,6 +242,25 @@ fi
     else
         echo -e "\n❌${R}BlueJ installation failed!${W}"
     fi
+  }
+}
+install_chrome() {
+[[ $(command -v google-chrome-stable) ]] && echo -e "\n${Y} Google Chrome is already Installed!${W}" || {
+echo -e "\n${R} [${W}-${R}]${C} Installing Google Chrome...${W}"
+wget -O- https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor | sudo tee /usr/share/keyrings/google-chrome.gpg > /dev/null
+if [ "${PIPESTATUS[1]}" != 0 ];then
+echo -e "\n❌${R}Failed to get google-chrome.gpg signing key! ${W}"
+fi
+echo 'X-Repolib-Name: Google Chrome
+Types: deb
+URIs: https://dl.google.com/linux/chrome-stable/deb/
+Suites: stable
+Components: main
+Architectures: arm64
+Signed-By: /usr/share/keyrings/google-chrome.gpg' | sudo tee /etc/apt/sources.list.d/google-chrome.sources >/dev/null
+
+echo 'repo_add_once=false' | sudo tee /etc/default/google-chrome >/dev/null
+install_apt "google-chrome-stable" || echo -e "\n${R} [${W}-${R}]${C} Google Chrome sucessfully installed!${W}"
   }
 }
 
@@ -292,15 +308,9 @@ apt install -y --no-install-recommends "${theme_packs[@]}"
 echo -e "\n${R} [${W}-${R}]${C} Purging Unnecessary Files..\n${W}"
    rm -rf /usr/share/backgrounds >/dev/null 2>&1
 sleep 1
-   rm -rf /usr/share/applications >/dev/null 2>&1
-sleep 1
    rm -rf /usr/share/backdrops/xfce/ >/dev/null 2>&1
 sleep 1
    rm -rf /usr/share/xfce4/backdrops/ >/dev/null 2>&1
-sleep 1
-   rm -rf /usr/share/icons >/dev/null 2>&1
-sleep 1
-   rm -rf /usr/share/themes >/dev/null 2>&1
 sleep 1
    rm -rf /usr/share/plank/themes >/dev/null 2>&1
 sleep 1
@@ -318,7 +328,6 @@ sleep 1
    rem_icon
    echo -e "\n${R} [${W}-${R}]${C} Upgrading the System..\n${W}"
    apt update -y && apt upgrade -y
-   apt purge aria2 --autoremove -y
    apt clean -y
    apt autoremove -y
 
@@ -486,10 +495,13 @@ mactahoe() {
 sleep 1
   apt install plank -y --no-install-recommends >/dev/null 2>&1
 sleep 1
-  wget -O "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/macthemes.tar.gz
+  echo -e "\n${R} [${W}-${R}]${C} Downloading theme archive...${W}"
+  wget -qO "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/macthemes.tar.gz
 sleep 1
+   echo -e "\n${R} [${W}-${R}]${C} Extracting theme archive...${W}"
    tar --overwrite -xzf $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
+   echo -e "\n${R} [${W}-${R}]${C} Applying theme config...${W}"
    tar --overwrite -xzf $term/../home/UbuntuX/patches/tahoeconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
@@ -504,10 +516,13 @@ macclassic() {
 sleep 1
   apt install plank -y --no-install-recommends >/dev/null 2>&1
 sleep 1
-  wget -O "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/macthemes.tar.gz
+echo -e "\n${R} [${W}-${R}]${C} Downloading theme archive...${W}"
+  wget -qO "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/macthemes.tar.gz
 sleep 1
+echo -e "\n${R} [${W}-${R}]${C} Extracting theme archive...${W}"
    tar --overwrite -xzf $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
+echo -e "\n${R} [${W}-${R}]${C} Applying theme config...${W}"
    tar --overwrite -xzf $term/../home/UbuntuX/patches/macclconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
@@ -522,10 +537,13 @@ windark() {
 sleep 1
   apt install xfce4-docklike-plugin  -y --no-install-recommends >/dev/null 2>&1
 sleep 1
-  wget -O "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/winthemes.tar.gz
+echo -e "\n${R} [${W}-${R}]${C} Downloading theme archive...${W}"
+  wget -qO "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/winthemes.tar.gz
 sleep 1
+echo -e "\n${R} [${W}-${R}]${C} Extracting theme archive...${W}"
 tar --overwrite -xzf $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
+echo -e "\n${R} [${W}-${R}]${C} Applying theme config...${W}"
 tar --overwrite -xzf $term/../home/UbuntuX/patches/winconfigd.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
@@ -538,10 +556,13 @@ winlight() {
 sleep 1
   apt install xfce4-docklike-plugin  -y --no-install-recommends >/dev/null 2>&1
 sleep 1
-  wget -O "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/winthemes.tar.gz
+echo -e "\n${R} [${W}-${R}]${C} Downloading theme archive...${W}"
+  wget -qO "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/winthemes.tar.gz
 sleep 1
+echo -e "\n${R} [${W}-${R}]${C} Extracting theme archive...${W}"
 tar --overwrite -xzf $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
+echo -e "\n${R} [${W}-${R}]${C} Applying theme config...${W}"
 tar --overwrite -xzf $term/../home/UbuntuX/patches/winconfigl.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
