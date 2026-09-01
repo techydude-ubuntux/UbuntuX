@@ -166,7 +166,8 @@ package() {
   vulkan-tools
   fastfetch
   )
-  apt install -y --no-install-recommends "${packs[@]}"
+  apt install -y --no-install-recommends "${packs[@]}" && echo -e "\n${R} [${W}-${R}]${C} Desktop Environment successfully installed!${W}" || echo -e "\n❌${R} Installation failed!${W}"
+  [[ $(command -v xfce4-session) ]] || exit 1
   apt purge --autoremove -y
   apt-get update -y
   apt-get upgrade -y
@@ -195,7 +196,7 @@ Pin: origin packages.microsoft.com
 Pin-Priority: 1001
 EOF
 apt update -y && apt upgrade -y
-apt install code --no-install-recommends -y || echo -e "\n${R} [${W}-${R}]${C} VS code sucessfully installed!${W}"
+apt install code --no-install-recommends -y && echo -e "\n${R} [${W}-${R}]${C} VS code successfully installed!${W}" || echo -e "\n❌${R} VS Code Installation failed!${W}"
   }
 }
 
@@ -211,7 +212,7 @@ Pin: release o=LP-PPA-mozillateam
 Pin-Priority: 1001
 EOF
 apt update && apt upgrade -y
-apt install firefox --no-install-recommends -y || echo -e "\n${R} [${W}-${R}]${C} Firefox sucessfully installed!${W}"
+apt install firefox --no-install-recommends -y && echo -e "\n${R} [${W}-${R}]${C} Firefox successfully installed!${W}" || echo -e "\n❌${R} Firefox Installation failed!${W}"
   }
 }
 
@@ -248,9 +249,6 @@ install_chrome() {
 [[ $(command -v google-chrome-stable) ]] && echo -e "\n${Y} Google Chrome is already Installed!${W}" || {
 echo -e "\n${R} [${W}-${R}]${C} Installing Google Chrome...${W}"
 wget -O- https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor | sudo tee /usr/share/keyrings/google-chrome.gpg > /dev/null
-if [ "${PIPESTATUS[1]}" != 0 ];then
-echo -e "\n❌${R}Failed to get google-chrome.gpg signing key! ${W}"
-fi
 echo 'X-Repolib-Name: Google Chrome
 Types: deb
 URIs: https://dl.google.com/linux/chrome-stable/deb/
@@ -258,9 +256,9 @@ Suites: stable
 Components: main
 Architectures: arm64
 Signed-By: /usr/share/keyrings/google-chrome.gpg' | sudo tee /etc/apt/sources.list.d/google-chrome.sources >/dev/null
-
 echo 'repo_add_once=false' | sudo tee /etc/default/google-chrome >/dev/null
-install_apt "google-chrome-stable" || echo -e "\n${R} [${W}-${R}]${C} Google Chrome sucessfully installed!${W}"
+apt-get update && apt-get upgrade -y
+install_apt "google-chrome-stable" && echo -e "\n${R} [${W}-${R}]${C} Google Chrome sucessfully installed!${W}" || echo -e "\n❌${R} Google Chrome Installation failed!${W}"
   }
 }
 
