@@ -196,7 +196,7 @@ Pin: origin packages.microsoft.com
 Pin-Priority: 1001
 EOF
 apt update -y && apt upgrade -y
-apt install code --no-install-recommends -y && echo -e "\n${R} [${W}-${R}]${C} VS code successfully installed!${W}" || echo -e "\n❌${R} VS Code Installation failed!${W}"
+install_apt "code" && echo -e "\n${R} [${W}-${R}]${C} VS code successfully installed!${W}" || echo -e "\n❌${R} VS Code Installation failed!${W}"
   }
 }
 
@@ -212,7 +212,7 @@ Pin: release o=LP-PPA-mozillateam
 Pin-Priority: 1001
 EOF
 apt update && apt upgrade -y
-apt install firefox --no-install-recommends -y && echo -e "\n${R} [${W}-${R}]${C} Firefox successfully installed!${W}" || echo -e "\n❌${R} Firefox Installation failed!${W}"
+install_apt "firefox" && echo -e "\n${R} [${W}-${R}]${C} Firefox successfully installed!${W}" || echo -e "\n❌${R} Firefox Installation failed!${W}"
   }
 }
 
@@ -229,7 +229,7 @@ fi
 
     install_apt "openjdk-25-jdk"
     echo -e "\n${R} [${W}-${R}]${C} Installing BlueJ...${W}"
-    apt install "$BLUEJ_FILE" && apt --fix-broken install -y
+    apt install "$BLUEJ_FILE" -y && apt --fix-broken install -y
 
     if dpkg -s bluej >/dev/null 2>&1; then
     sleep 1
