@@ -228,7 +228,7 @@ fi
 
     install_apt "openjdk-25-jdk"
     echo -e "\n${R} [${W}-${R}]${C} Installing BlueJ...${W}"
-    apt install ./"$BLUEJ_FILE" && apt --fix-broken install -y
+    apt install "$BLUEJ_FILE" && apt --fix-broken install -y
 
     if dpkg -s bluej >/dev/null 2>&1; then
     sleep 1
