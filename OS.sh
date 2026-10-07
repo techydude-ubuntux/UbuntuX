@@ -31,10 +31,10 @@ fi
 arch=$(uname -m)
 term="/data/data/com.termux/files/usr"
 
-sudo() {
+install_sudo() {
 echo -e "\n${R} [${W}-${R}]${C} Installing Sudo & System Utilities...${W}"
-apt update -y && apt upgrade -y
-apt install sudo -y || echo -e "\n${R}❌ Sudo Installation failed!${W}\n"
+apt-get update -y && apt-get upgrade -y
+apt-get install sudo -y || echo -e "\n${R}❌ Sudo Installation failed!${W}\n"
 base_packs=(
   wget
   apt-utils
@@ -57,7 +57,7 @@ base_packs=(
   dbus-x11
   apt-transport-https
  )
- apt install -y "${base_packs[@]}" --no-install-recommends
+ apt-get install -y "${base_packs[@]}" --no-install-recommends
  locale-gen en_US.UTF-8
 echo -e "\n${R} [${W}-${R}]${G} Sudo Successfully Installed!${W}"
 }
@@ -150,8 +150,8 @@ package() {
    echo "" > /var/lib/dpkg/info/udisks2.postinst
    dpkg --configure -a
    apt-mark hold udisks2
-   apt purge --autoremove -y
-   apt update -y && apt upgrade -y
+   apt-get purge --autoremove -y
+   apt-get update -y && apt-get upgrade -y
    echo -e "\n${R} [${W}-${R}]${C} Checking required packages...${W}"
    packs=(
   xfce4
@@ -166,12 +166,12 @@ package() {
   vulkan-tools
   fastfetch
   )
-  apt install -y --no-install-recommends "${packs[@]}" && echo -e "\n${R} [${W}-${R}]${C} Desktop Environment successfully installed!${W}" || echo -e "\n❌${R} Installation failed!${W}"
+  apt-get install -y --no-install-recommends "${packs[@]}" && echo -e "\n${R} [${W}-${R}]${C} Desktop Environment successfully installed!${W}" || echo -e "\n❌${R} Installation failed!${W}"
   [[ $(command -v xfce4-session) ]] || exit 1
-  apt purge --autoremove -y
+  apt-get purge --autoremove -y
   apt-get update -y
   apt-get upgrade -y
-  apt purge --autoremove -y
+  apt-get purge --autoremove -y
 }
 
 install_apt() {
@@ -245,23 +245,6 @@ fi
     fi
   }
 }
-install_chrome() {
-[[ $(command -v google-chrome-stable) ]] && echo -e "\n${Y} Google Chrome is already Installed!${W}" || {
-echo -e "\n${R} [${W}-${R}]${C} Installing Google Chrome...${W}"
-wget -O- https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor | sudo tee /usr/share/keyrings/google-chrome.gpg > /dev/null
-echo 'X-Repolib-Name: Google Chrome
-Types: deb
-URIs: https://dl.google.com/linux/chrome-stable/deb/
-Suites: stable
-Components: main
-Architectures: arm64
-Signed-By: /usr/share/keyrings/google-chrome.gpg' | sudo tee /etc/apt/sources.list.d/google-chrome.sources >/dev/null
-echo 'repo_add_once=false' | sudo tee /etc/default/google-chrome >/dev/null
-apt-get update && apt-get upgrade -y
-install_apt "google-chrome-stable" && echo -e "\n${R} [${W}-${R}]${C} Google Chrome sucessfully installed!${W}" || echo -e "\n❌${R} Google Chrome Installation failed!${W}"
-  }
-}
-
 rem_theme() {
   theme=(Bright Daloa Emacs Moheli Retro Smoke)
   for rmi in "${theme[@]}"; do
@@ -325,9 +308,9 @@ sleep 1
    rem_theme
    rem_icon
    echo -e "\n${R} [${W}-${R}]${C} Upgrading the System..\n${W}"
-   apt update -y && apt upgrade -y
-   apt clean -y
-   apt autoremove -y
+   apt-get update -y && apt-get upgrade -y
+   apt-get clean -y
+   apt-get autoremove -y
 
 }
 
@@ -496,7 +479,7 @@ fi
 mactahoe() {
    echo -e "\n${R} [${W}-${R}]${C} Installing icons and themes..\n${W}"
 sleep 1
-  apt install plank -y --no-install-recommends >/dev/null 2>&1
+  apt-get install plank -y --no-install-recommends >/dev/null 2>&1
 sleep 1
   echo -e "\n${R} [${W}-${R}]${C} Downloading theme archive...${W}"
   wget -qO "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/macthemes.tar.gz
@@ -517,7 +500,7 @@ sleep 1
 macclassic() {
   echo -e "\n${R} [${W}-${R}]${C} Installing icons and themes..\n${W}"
 sleep 1
-  apt install plank -y --no-install-recommends >/dev/null 2>&1
+  apt-get install plank -y --no-install-recommends >/dev/null 2>&1
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Downloading theme archive...${W}"
   wget -qO "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/macthemes.tar.gz
@@ -538,7 +521,7 @@ sleep 1
 windark() {
  echo -e "\n${R} [${W}-${R}]${C} Installing icons and themes..\n${W}"
 sleep 1
-  apt install xfce4-docklike-plugin  -y --no-install-recommends >/dev/null 2>&1
+  apt-get install xfce4-docklike-plugin  -y --no-install-recommends >/dev/null 2>&1
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Downloading theme archive...${W}"
   wget -qO "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/winthemes.tar.gz
@@ -557,7 +540,7 @@ sleep 1
 winlight() {
  echo -e "\n${R} [${W}-${R}]${C} Installing icons and themes..\n${W}"
 sleep 1
-  apt install xfce4-docklike-plugin  -y --no-install-recommends >/dev/null 2>&1
+  apt-get install xfce4-docklike-plugin  -y --no-install-recommends >/dev/null 2>&1
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Downloading theme archive...${W}"
   wget -qO "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/winthemes.tar.gz
@@ -647,10 +630,26 @@ EOF
     fi
 }
 
+install_chrome() {
+[[ $(command -v google-chrome-stable) ]] && echo -e "\n${Y} Google Chrome is already Installed!${W}" || {
+echo -e "\n${R} [${W}-${R}]${C} Installing Google Chrome...${W}"
+wget -O- https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor | sudo tee /usr/share/keyrings/google-chrome.gpg >/dev/null 2>&1
+echo 'X-Repolib-Name: Google Chrome
+Types: deb
+URIs: https://dl.google.com/linux/chrome-stable/deb/
+Suites: stable
+Components: main
+Architectures: arm64
+Signed-By: /usr/share/keyrings/google-chrome.gpg' | sudo tee /etc/apt/sources.list.d/google-chrome.sources >/dev/null 2>&1
+echo 'repo_add_once=false' | sudo tee /etc/default/google-chrome >/dev/null 2>&1
+apt-get update && apt-get upgrade -y
+install_apt "google-chrome-stable" && echo -e "\n${R} [${W}-${R}]${C} Google Chrome sucessfully installed!${W}" || echo -e "\n❌${R} Google Chrome Installation failed!${W}"
+  }
+}
 
 #-----functions-----#
 banner
-sudo
+install_sudo
 login
 package
 install_menu
