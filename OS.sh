@@ -98,7 +98,19 @@ sleep 1
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity >/dev/null 2>&1
 sleep 1
 
-proot-distro login  --user $user ubuntu --bind /dev/null:/proc/sys/kernel/cap_last_cap --shared-tmp --fix-low-ports
+proot-distro login  --user shivansh ubuntu --bind /dev/null:/proc/sys/kernel/cap_last_cap --shared-tmp --fix-low-ports -- bash -c '
+eval $(dbus-launch --sh-syntax)
+export DBUS_SESSION_BUS_ADDRESS
+export XDG_RUNTIME_DIR=/tmp
+export PULSE_SERVER=127.0.0.1
+export GALLIUM_DRIVER=virpipe
+export vblank_mode=0
+export TERM=xterm-256color
+export LANG=C.UTF-8
+export DISPLAY=:0
+exec dbus-launch --exit-with-session xfce4-session >/dev/null 2>&1 &
+exec bash -il
+'
 
 exit 0
 EOF
@@ -106,10 +118,6 @@ EOF
 chmod +x $term/bin/UbuntuX
 
 cat >> /etc/bash.bashrc << 'EOF'
-if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
-    eval $(dbus-launch --sh-syntax)
-    export DBUS_SESSION_BUS_ADDRESS
-fi
 
 export XDG_RUNTIME_DIR=/tmp
 export PULSE_SERVER=127.0.0.1
@@ -118,10 +126,7 @@ export vblank_mode=0
 export TERM=xterm-256color
 export LANG=C.UTF-8
 export DISPLAY=:0
-if [ -z "$XFCE_STARTED" ]; then
-export XFCE_STARTED=1
-{ dbus-launch --exit-with-session xfce4-session & } >/dev/null 2>&1
-fi
+chmod 700 /tmp
 EOF
 
 cat >> /home/"$user"/.bash_logout << 'EOF'
