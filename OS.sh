@@ -98,7 +98,7 @@ sleep 1
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity >/dev/null 2>&1
 sleep 1
 
-proot-distro login  --user shivansh ubuntu --bind /dev/null:/proc/sys/kernel/cap_last_cap --shared-tmp --fix-low-ports -- bash -c '
+proot-distro login  --user $user ubuntu --bind /dev/null:/proc/sys/kernel/cap_last_cap --shared-tmp --fix-low-ports -- bash -c '
 eval $(dbus-launch --sh-syntax)
 export DBUS_SESSION_BUS_ADDRESS
 export XDG_RUNTIME_DIR=/tmp
