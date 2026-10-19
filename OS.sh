@@ -254,6 +254,10 @@ fi
     sleep 1
     cp -rf /usr/share/bluej/images/bluej-icon-256.png /usr/share/pixmaps/bluej.png
     sleep 1
+    rm -rf /usr/share/bluej/jdk
+    sleep 1
+    ln -s /usr/lib/jvm/java-25-openjdk-arm64 /usr/share/bluej/jdk
+    sleep 1
         echo -e "\n${R} [${W}-${R}]${C} BlueJ Installed Successfully${W}"
     else
         echo -e "\n❌${R}BlueJ installation failed!${W}"
