@@ -97,7 +97,7 @@ pkg install tur-repo -y
 pkg install proot-distro pulseaudio termux-x11-nightly -y --no-install-recommends
 pkg install mesa-zink virglrenderer-mesa-zink -y --no-install-recommends
 pkg install cava -y --no-install-recommends >/dev/null 2>&1 &
-pkg reinstall ~/UbuntuX/patches/vulkan-wrapper-android_25.0.0_aarch64.deb
+pkg reinstall ~/UbuntuX/patches/vulkan-wrapper-android_25.0.0_aarch64.deb -y
 apt-mark hold vulkan-wrapper-android mesa-zink virglrender-mesa-zink 
 apt-get autoremove -y 
 }
