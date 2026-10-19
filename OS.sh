@@ -209,6 +209,11 @@ Pin-Priority: 1001
 EOF
 apt-get update -y && apt-get upgrade -y
 install_apt "code" && echo -e "\n${R} [${W}-${R}]${C} VS code successfully installed!${W}" || echo -e "\n❌${R} VS Code Installation failed!${W}"
+sleep 1
+sed -i '/^Exec=/s/^\(Exec=[^ ]*\)/\1 --no-sandbox/' /usr/share/applications/com.microsoft.VSCode.desktop
+sleep 1
+sed -i '/^Exec=/s/^\(Exec=[^ ]*\)/\1 --no-sandbox/' /usr/share/applications/com.microsoft.VSCode.UrlHandler.desktop
+sleep 1
   }
 }
 
@@ -632,6 +637,11 @@ Signed-By: /usr/share/keyrings/google-chrome.gpg' | sudo tee /etc/apt/sources.li
 echo 'repo_add_once=false' | sudo tee /etc/default/google-chrome >/dev/null 2>&1
 apt-get update && apt-get upgrade -y
 install_apt "google-chrome-stable" && echo -e "\n${R} [${W}-${R}]${C} Google Chrome sucessfully installed!${W}" || echo -e "\n❌${R} Google Chrome Installation failed!${W}"
+sleep 1
+sed -i '/^Exec=/s/^\(Exec=[^ ]*\)/\1 --no-sandbox/' /usr/share/applications/com.google.Chrome.desktop
+sleep 1
+sed -i '/^Exec=/s/^\(Exec=[^ ]*\)/\1 --no-sandbox/' /usr/share/applications/google-chrome.desktop
+sleep 1
   }
 }
 
