@@ -170,6 +170,8 @@ package() {
   vkmark
   vulkan-tools
   fastfetch
+  tumbler
+  xfce4-docklike-plugin
   )
   apt-get install -y --no-install-recommends "${packs[@]}" && echo -e "\n${R} [${W}-${R}]${C} Desktop Environment successfully installed!${W}" || echo -e "\n❌${R} Installation failed!${W}"
   [[ $(command -v xfce4-session) ]] || exit 1
@@ -292,15 +294,6 @@ config() {
 apt install -y --no-install-recommends "${theme_packs[@]}"
   banner
 echo -e "\n${R} [${W}-${R}]${C} Purging Unnecessary Files..\n${W}"
-   rm -rf /usr/share/backgrounds >/dev/null 2>&1
-sleep 1
-   rm -rf /usr/share/backdrops/xfce/ >/dev/null 2>&1
-sleep 1
-   rm -rf /usr/share/xfce4/backdrops/ >/dev/null 2>&1
-sleep 1
-   rm -rf /usr/share/plank/themes >/dev/null 2>&1
-sleep 1
-   rm -rf /usr/share/sounds >/dev/null 2>&1
 sleep 1
    rm -rf "/home/$user/.config" >/dev/null 2>&1
 sleep 1
@@ -316,7 +309,8 @@ sleep 1
    apt-get update -y && apt-get upgrade -y
    apt-get clean -y
    apt-get autoremove -y
-
+   sleep 1
+   rm -rf /usr/share/applications
 }
 
 install_menu() {
@@ -487,13 +481,13 @@ sleep 1
   apt-get install plank -y --no-install-recommends >/dev/null 2>&1
 sleep 1
   echo -e "\n${R} [${W}-${R}]${C} Downloading theme archive...${W}"
-  wget -qO "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/macthemes.tar.gz
+  wget -qO "$term"/../home/UbuntuX/patches/macthemes.tar.xz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/macthemes.tar.xz
 sleep 1
    echo -e "\n${R} [${W}-${R}]${C} Extracting theme archive...${W}"
-   tar --overwrite -xzf $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+   tar --overwrite -xJpf $term/../home/UbuntuX/patches/macthemes.tar.xz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
    echo -e "\n${R} [${W}-${R}]${C} Applying theme config...${W}"
-   tar --overwrite -xzf $term/../home/UbuntuX/patches/tahoeconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+   tar --overwrite -xJpf $term/../home/UbuntuX/patches/mactahoeconfig.tar.xz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
@@ -508,13 +502,13 @@ sleep 1
   apt-get install plank -y --no-install-recommends >/dev/null 2>&1
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Downloading theme archive...${W}"
-  wget -qO "$term"/../home/UbuntuX/patches/macthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/macthemes.tar.gz
+  wget -qO "$term"/../home/UbuntuX/patches/macthemes.tar.xz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/macthemes.tar.xz
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Extracting theme archive...${W}"
-   tar --overwrite -xzf $term/../home/UbuntuX/patches/macthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+   tar --overwrite -xJpf $term/../home/UbuntuX/patches/macthemes.tar.xz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Applying theme config...${W}"
-   tar --overwrite -xzf $term/../home/UbuntuX/patches/macclconfig.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+   tar --overwrite -xJpf $term/../home/UbuntuX/patches/macclconfig.tar.xz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
@@ -529,32 +523,32 @@ sleep 1
   apt-get install xfce4-docklike-plugin  -y --no-install-recommends >/dev/null 2>&1
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Downloading theme archive...${W}"
-  wget -qO "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/winthemes.tar.gz
+  wget -qO "$term"/../home/UbuntuX/patches/winthemes.tar.xz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/winthemes.tar.xz
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Extracting theme archive...${W}"
-tar --overwrite -xzf $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+tar --overwrite -xJpf $term/../home/UbuntuX/patches/winthemes.tar.xz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Applying theme config...${W}"
-tar --overwrite -xzf $term/../home/UbuntuX/patches/winconfigd.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+tar --overwrite -xJpf $term/../home/UbuntuX/patches/winconfigd.tar.xz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
 sleep 1
  }
-
+ 
 winlight() {
  echo -e "\n${R} [${W}-${R}]${C} Installing icons and themes..\n${W}"
 sleep 1
   apt-get install xfce4-docklike-plugin  -y --no-install-recommends >/dev/null 2>&1
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Downloading theme archive...${W}"
-  wget -qO "$term"/../home/UbuntuX/patches/winthemes.tar.gz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/winthemes.tar.gz
+  wget -qO "$term"/../home/UbuntuX/patches/winthemes.tar.xz https://github.com/techydude-ubuntux/UbuntuX/releases/download/v1.1/winthemes.tar.xz
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Extracting theme archive...${W}"
-tar --overwrite -xzf $term/../home/UbuntuX/patches/winthemes.tar.gz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
+tar --overwrite -xJpf $term/../home/UbuntuX/patches/winthemes.tar.xz -C / || echo -e "\n${R}❌ Icon and Theme Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Applying theme config...${W}"
-tar --overwrite -xzf $term/../home/UbuntuX/patches/winconfigl.tar.gz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
+tar --overwrite -xJpf $term/../home/UbuntuX/patches/winconfigl.tar.xz -C /home/$user/ || echo -e "\n${R}❌ Config Installation failed!${W}\n"
 sleep 1
 echo -e "\n${R} [${W}-${R}]${C} Rebuilding Font Cache..\n${W}"
 fc-cache -fv >/dev/null 2>&1
@@ -569,21 +563,6 @@ sleep 1
  sleep 1
  cp -r /home/$user/.config /root/
  sleep 1
- orphan="/usr/share/applications"
- dpkg -s bluej >/dev/null 2>&1 || rm -f "$orphan/bluej.desktop"
- dpkg -s code >/dev/null 2>&1 || {
-        rm -f "$orphan/code.desktop"
-        rm -f "$orphan/code-url-handler.desktop"
-    }
-
-    dpkg -s firefox >/dev/null 2>&1 || rm -f "$orphan/firefox.desktop"
-    dpkg -s gucharmap >/dev/null 2>&1 || rm -f "$orphan/gucharmap.desktop"
-    dpkg -s mate-calc >/dev/null 2>&1 || rm -f "$orphan/mate-calc.desktop"
-    dpkg -s onboard >/dev/null 2>&1 || rm -f "$orphan/onboard.desktop"
-    dpkg -s openjdk-25-jdk >/dev/null 2>&1 || rm -f "$orphan/openjdk-25-java.desktop"
-    dpkg -s plank >/dev/null 2>&1 || rm -f "$orphan/plank.desktop"
-    dpkg -s python3 >/dev/null 2>&1 || rm -f "$orphan/python3.13.desktop"
-    dpkg -s vlc >/dev/null 2>&1 || rm -f "$orphan/vlc.desktop"
  }
 
 UBUNTU_DIR="/data/data/com.termux/files/usr/var/lib/proot-distro/containers/ubuntu/rootfs"
