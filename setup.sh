@@ -109,6 +109,8 @@ export vblank_mode=0
 export MESA_VK_WSI_PRESENT_MODE=mailbox
 export DISPLAY=:0
 alias 'cl'=clear
+alias 'la'="ls -a"
+alias 'll'="ls -l"
 EOF
     echo -e "\n${R} [${W}-${R}]${C} Checking for Distro...${W}"
     termux-reload-settings
