@@ -558,7 +558,7 @@ fc-cache -fv >/dev/null 2>&1
 sleep 1
  }
 
- blicon() {
+blicon() {
  sleep 1
  rm -rf /usr/share/pixmaps/bluej.xpm /usr/share/icons/hicolor/256x256/apps/bluej.png /usr/share/icons/hicolor/48x48/apps/bluej.png >/dev/null 2>&1
  sleep 1
