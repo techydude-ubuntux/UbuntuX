@@ -179,6 +179,9 @@ package() {
   apt-get update -y
   apt-get upgrade -y
   apt-get purge --autoremove -y
+  sleep 1
+  rm -rf /usr/share/applications
+  mkdir -p /usr/share/applications
 }
 
 install_apt() {
@@ -309,8 +312,6 @@ sleep 1
    apt-get update -y && apt-get upgrade -y
    apt-get clean -y
    apt-get autoremove -y
-   sleep 1
-   rm -rf /usr/share/applications
 }
 
 install_menu() {
@@ -451,8 +452,8 @@ cat << EOF
 
 ${Y} ---${G} Select Theme to Install for Desktop  (Only one Allowed) ${Y}---
 
-${C} [${W}1${C}] macOS Sonoma Classic Theme (Default)
-${C} [${W}2${C}] macOS Tahoe Classic Theme
+${C} [${W}1${C}] macOS Sonoma Classic Theme 
+${C} [${W}2${C}] macOS Tahoe Classic Theme (Default)
 ${C} [${W}3${C}] Windows 11 Dark Theme
 ${C} [${W}4${C}] Windows 11 Light Theme
 
@@ -464,13 +465,13 @@ read -n1 -p "${R} [${G}~${R}]${Y} Enter choices: ${G}" themenu
 echo
 
 if [[ ${themenu} == 2 ]]; then
-   mactahoe
+   macclassic
 elif [[ ${themenu} == 3 ]]; then
   windark
 elif [[ ${themenu} == 4 ]]; then
   winlight
 else
-  macclassic
+  mactahoe
 fi
 
  }
