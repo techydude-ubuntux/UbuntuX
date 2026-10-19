@@ -207,7 +207,7 @@ Package: code
 Pin: origin packages.microsoft.com
 Pin-Priority: 1001
 EOF
-apt update -y && apt upgrade -y
+apt-get update -y && apt-get upgrade -y
 install_apt "code" && echo -e "\n${R} [${W}-${R}]${C} VS code successfully installed!${W}" || echo -e "\n❌${R} VS Code Installation failed!${W}"
   }
 }
@@ -223,7 +223,7 @@ Package: firefox*
 Pin: release o=LP-PPA-mozillateam
 Pin-Priority: 1001
 EOF
-apt update && apt upgrade -y
+apt-get update && apt-get upgrade -y
 install_apt "firefox" && echo -e "\n${R} [${W}-${R}]${C} Firefox successfully installed!${W}" || echo -e "\n❌${R} Firefox Installation failed!${W}"
   }
 }
@@ -241,7 +241,7 @@ fi
 
     install_apt "openjdk-25-jdk"
     echo -e "\n${R} [${W}-${R}]${C} Installing BlueJ...${W}"
-    apt install "$BLUEJ_FILE" -y && apt --fix-broken install -y
+    apt-get install "$BLUEJ_FILE" -y && apt --fix-broken install -y
 
     if dpkg -s bluej >/dev/null 2>&1; then
     sleep 1
@@ -278,7 +278,7 @@ rem_icon() {
 
 config() {
   banner
-  apt upgrade -y
+  apt-get upgrade -y
   theme_packs=(
   gtk2-engines-murrine
   gtk2-engines-pixbuf
@@ -296,7 +296,7 @@ config() {
   hunspell-en-us
   dictionaries-common
   )
-apt install -y --no-install-recommends "${theme_packs[@]}"
+apt-get install -y --no-install-recommends "${theme_packs[@]}"
   banner
 echo -e "\n${R} [${W}-${R}]${C} Purging Unnecessary Files..\n${W}"
 sleep 1
