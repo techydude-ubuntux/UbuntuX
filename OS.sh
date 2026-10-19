@@ -245,11 +245,9 @@ fi
 
     if dpkg -s bluej >/dev/null 2>&1; then
     sleep 1
-    rm -rf /usr/share/pixmaps/bluej.xpm >/dev/null 2>&1
+    rm -rf /usr/share/pixmaps/bluej* >/dev/null 2>&1
     sleep 1
-    cp -rf /usr/share/bluej/images/bluej-icon-256.png /usr/share/pixmaps/
-    sleep 1
-    mv /usr/share/pixmaps/bluej-icon-256.png /usr/share/pixmaps/bluej.png
+    cp -rf /usr/share/bluej/images/bluej-icon-256.png /usr/share/pixmaps/bluej.png
     sleep 1
         echo -e "\n${R} [${W}-${R}]${C} BlueJ Installed Successfully${W}"
     else
