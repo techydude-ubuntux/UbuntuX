@@ -331,9 +331,8 @@ Termux:X11 → Preferences
 ```
 
 ### Output
-- Resolution Mode → `Custom`
-- Resolution → `1080x1200`
-- Filtering Mode → `Bilinear`
+- Resolution Mode → `native`
+- Filtering Mode → `nearest`
 - Adjust resolution to orientation → `OFF`
 - Stretch to fit display → `OFF`
 - Reseed screen while keyboard open → `ON`
