@@ -126,6 +126,8 @@ export vblank_mode=0
 export TERM=xterm-256color
 export LANG=C.UTF-8
 export DISPLAY=:0
+alias 'cl'=clear
+export term=/data/data/com.termux/files/usr
 chmod 700 /tmp
 EOF
 
