@@ -307,6 +307,7 @@ sleep 1
    cp -r $term/../home/Storage /home/$user/
 sleep 1
    mv /usr/share/pixmaps/ubuntu-logo.svg /usr/share/pixmaps/ubuntulogo1.svg
+sleep 1
    rem_theme
    rem_icon
    echo -e "\n${R} [${W}-${R}]${C} Upgrading the System..\n${W}"
