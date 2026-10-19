@@ -232,7 +232,7 @@ install_bluej() {
 [[ $(command -v bluej) ]] && echo -e "\n${Y} BlueJ is already Installed!${W}" || {
   banner
   echo -e "\n${R} [${W}-${R}]${C} Downloading BlueJ...${W}"
-  wget -qO "$term"/../home/UbuntuX/patches/BlueJ-linux-arm64-5.5.0.deb https://www.bluej.org/download/files/BlueJ-linux-arm64-5.5.0.deb
+  wget -qO "$term"/../home/UbuntuX/patches/BlueJ-linux-arm64-6.0.1.deb https://github.com/k-pet-group/BlueJ-Greenfoot/releases/download/BLUEJ-RELEASE-6.0.1/BlueJ-linux-arm64-6.0.1.deb
   BLUEJ_FILE=$(ls "$term"/../home/UbuntuX/patches/BlueJ*.deb 2>/dev/null | head -n 1)
   if [ -z "$BLUEJ_FILE" ]; then
   echo -e "\n❌ ${R}No BlueJ .deb file found!${W}"
@@ -308,6 +308,7 @@ sleep 1
 sleep 1
    cp -r $term/../home/Storage /home/$user/
 sleep 1
+   mv /usr/share/pixmaps/ubuntu-logo.svg /usr/share/pixmaps/ubuntulogo1.svg
    rem_theme
    rem_icon
    echo -e "\n${R} [${W}-${R}]${C} Upgrading the System..\n${W}"
