@@ -54,7 +54,7 @@ https://github.com/termux/termux-app/releases/download/v0.118.3/termux-app_v0.11
 
 
 ## 2. Install Termux:X11
-https://github.com/termux/termux-x11/releases/download/nightly/app-universal-debug.apk
+https://github.com/termux/termux-x11/releases/download/nightly/termux-x11-universal-sharedUid-debug.apk
 
 
 ## Install ADB AppControl App
