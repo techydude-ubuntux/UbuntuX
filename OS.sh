@@ -80,6 +80,7 @@ echo "root:${pass}" | chpasswd
 echo "${user}:${pass}" | chpasswd
 echo "$user ALL=(ALL:ALL) ALL" > "/etc/sudoers.d/$user"
 chmod 440 "/etc/sudoers.d/$user"
+visudo -cf "/etc/sudoers.d/$user"
 cat > $term/bin/UbuntuX << EOF
 #!/data/data/com.termux/files/usr/bin/bash
 
